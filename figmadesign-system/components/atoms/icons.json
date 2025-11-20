@@ -1,0 +1,210 @@
+{
+  "componentName": "Icon",
+  "description": "Icon component with size and color variants",
+  "source": "Material Icons",
+  "variants": {
+    "sizes": {
+      "xs": {
+        "width": "16px",
+        "height": "16px"
+      },
+      "sm": {
+        "width": "20px",
+        "height": "20px"
+      },
+      "md": {
+        "width": "24px",
+        "height": "24px"
+      },
+      "lg": {
+        "width": "32px",
+        "height": "32px"
+      },
+      "xl": {
+        "width": "48px",
+        "height": "48px"
+      }
+    },
+    "colors": {
+      "default": {
+        "color": "#5F6368"
+      },
+      "primary": {
+        "color": "#0A3D62"
+      },
+      "secondary": {
+        "color": "#80868B"
+      },
+      "success": {
+        "color": "#4CAF50"
+      },
+      "warning": {
+        "color": "#FFC107"
+      },
+      "error": {
+        "color": "#F44336"
+      },
+      "info": {
+        "color": "#2196F3"
+      },
+      "white": {
+        "color": "#FFFFFF"
+      }
+    }
+  },
+  "iconSet": {
+    "navigation": [
+      {
+        "name": "home",
+        "materialIcon": "home",
+        "category": "navigation"
+      },
+      {
+        "name": "profile",
+        "materialIcon": "person",
+        "category": "navigation"
+      },
+      {
+        "name": "settings",
+        "materialIcon": "settings",
+        "category": "navigation"
+      },
+      {
+        "name": "dashboard",
+        "materialIcon": "dashboard",
+        "category": "navigation"
+      },
+      {
+        "name": "menu",
+        "materialIcon": "menu",
+        "category": "navigation"
+      },
+      {
+        "name": "close",
+        "materialIcon": "close",
+        "category": "navigation"
+      },
+      {
+        "name": "arrow_back",
+        "materialIcon": "arrow_back",
+        "category": "navigation"
+      },
+      {
+        "name": "arrow_forward",
+        "materialIcon": "arrow_forward",
+        "category": "navigation"
+      }
+    ],
+    "actions": [
+      {
+        "name": "edit",
+        "materialIcon": "edit",
+        "category": "action"
+      },
+      {
+        "name": "delete",
+        "materialIcon": "delete",
+        "category": "action"
+      },
+      {
+        "name": "save",
+        "materialIcon": "save",
+        "category": "action"
+      },
+      {
+        "name": "add",
+        "materialIcon": "add",
+        "category": "action"
+      },
+      {
+        "name": "upload",
+        "materialIcon": "upload",
+        "category": "action"
+      },
+      {
+        "name": "download",
+        "materialIcon": "download",
+        "category": "action"
+      },
+      {
+        "name": "search",
+        "materialIcon": "search",
+        "category": "action"
+      },
+      {
+        "name": "filter",
+        "materialIcon": "filter_list",
+        "category": "action"
+      }
+    ],
+    "status": [
+      {
+        "name": "check_circle",
+        "materialIcon": "check_circle",
+        "category": "status"
+      },
+      {
+        "name": "check",
+        "materialIcon": "check",
+        "category": "status"
+      },
+      {
+        "name": "warning",
+        "materialIcon": "warning",
+        "category": "status"
+      },
+      {
+        "name": "error",
+        "materialIcon": "error",
+        "category": "status"
+      },
+      {
+        "name": "info",
+        "materialIcon": "info",
+        "category": "status"
+      }
+    ],
+    "content": [
+      {
+        "name": "document",
+        "materialIcon": "description",
+        "category": "content"
+      },
+      {
+        "name": "folder",
+        "materialIcon": "folder",
+        "category": "content"
+      },
+      {
+        "name": "image",
+        "materialIcon": "image",
+        "category": "content"
+      },
+      {
+        "name": "calendar",
+        "materialIcon": "calendar_today",
+        "category": "content"
+      },
+      {
+        "name": "schedule",
+        "materialIcon": "schedule",
+        "category": "content"
+      },
+      {
+        "name": "assessment",
+        "materialIcon": "assessment",
+        "category": "content"
+      },
+      {
+        "name": "school",
+        "materialIcon": "school",
+        "category": "content"
+      },
+      {
+        "name": "work",
+        "materialIcon": "work",
+        "category": "content"
+      }
+    ]
+  }
+}

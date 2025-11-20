@@ -1,0 +1,351 @@
+{
+  "componentName": "Participant Dashboard Layout",
+  "description": "Complete dashboard layout for certification system participants",
+  "layout": {
+    "container": {
+      "display": "flex",
+      "minHeight": "100vh",
+      "backgroundColor": "#F5F6FA"
+    },
+    "sidebar": {
+      "component": "sidebar.participant",
+      "width": "250px",
+      "position": "fixed",
+      "left": "0px",
+      "top": "0px",
+      "height": "100vh",
+      "zIndex": "100",
+      "backgroundColor": "#0A3D62"
+    },
+    "contentArea": {
+      "marginLeft": "250px",
+      "flex": "1",
+      "minHeight": "100vh"
+    }
+  },
+  "sidebar": {
+    "header": {
+      "logoSection": {
+        "padding": "32px 24px",
+        "borderBottom": "1px solid rgba(255, 255, 255, 0.1)",
+        "textAlign": "center"
+      },
+      "logo": {
+        "width": "60px",
+        "height": "60px",
+        "marginBottom": "12px"
+      },
+      "title": {
+        "text": "LSP-SI",
+        "fontFamily": "Poppins",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "color": "#FFFFFF"
+      },
+      "subtitle": {
+        "text": "Portal Peserta",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgba(255, 255, 255, 0.7)"
+      }
+    },
+    "menu": {
+      "sections": [
+        {
+          "title": "Main Menu",
+          "items": [
+            {
+              "id": "beranda",
+              "label": "Beranda",
+              "icon": "home",
+              "href": "/participant",
+              "badge": null
+            },
+            {
+              "id": "profil",
+              "label": "Profil",
+              "icon": "person",
+              "href": "/participant/profile",
+              "badge": null
+            },
+            {
+              "id": "apl01",
+              "label": "Form APL.01",
+              "icon": "description",
+              "href": "/participant/apl01",
+              "badge": "2"
+            },
+            {
+              "id": "apl02",
+              "label": "Form APL.02",
+              "icon": "assignment",
+              "href": "/participant/apl02",
+              "badge": null
+            },
+            {
+              "id": "jadwal",
+              "label": "Jadwal & Status",
+              "icon": "event",
+              "href": "/participant/schedule",
+              "badge": "new"
+            }
+          ]
+        },
+        {
+          "title": "Results",
+          "items": [
+            {
+              "id": "hasil",
+              "label": "Hasil Asesmen",
+              "icon": "assessment",
+              "href": "/participant/results",
+              "badge": null
+            },
+            {
+              "id": "sertifikat",
+              "label": "Sertifikat",
+              "icon": "workspace_premium",
+              "href": "/participant/certificates",
+              "badge": null
+            }
+          ]
+        }
+      ]
+    },
+    "userSection": {
+      "container": {
+        "position": "absolute",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px",
+        "padding": "20px",
+        "borderTop": "1px solid rgba(255, 255, 255, 0.1)"
+      },
+      "userInfo": {
+        "avatar": {
+          "width": "36px",
+          "height": "36px",
+          "borderRadius": "50%",
+          "borderWidth": "2px",
+          "borderColor": "rgba(255, 255, 255, 0.3)"
+        },
+        "name": {
+          "text": "John Doe",
+          "fontFamily": "Roboto",
+          "fontSize": "14px",
+          "fontWeight": "600",
+          "color": "#FFFFFF"
+        },
+        "email": {
+          "text": "john.doe@example.com",
+          "fontFamily": "Roboto",
+          "fontSize": "12px",
+          "fontWeight": "400",
+          "color": "rgba(255, 255, 255, 0.7)"
+        }
+      },
+      "logoutButton": {
+        "text": "Keluar",
+        "icon": "logout",
+        "action": "/logout"
+      }
+    }
+  },
+  "contentArea": {
+    "pageHeader": {
+      "breadcrumb": {
+        "items": [
+          { "label": "Beranda", "href": "/participant" },
+          { "label": "Dashboard", "active": true }
+        ]
+      },
+      "pageTitle": {
+        "text": "Dashboard Peserta",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "color": "#1A1A1A"
+      },
+      "welcomeMessage": {
+        "text": "Selamat datang kembali, John! Berikut adalah status pendaftaran Anda.",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "contentGrid": {
+      "layout": "grid",
+      "gridTemplateColumns": "repeat(12, 1fr)",
+      "gap": "32px",
+      "padding": "32px"
+    },
+    "sections": [
+      {
+        "id": "progress",
+        "gridSpan": "span 12",
+        "component": "global-progress-bar"
+      },
+      {
+        "id": "stats",
+        "gridSpan": "span 12",
+        "component": "stats-cards",
+        "cards": ["registration", "documents", "schedule", "assessment"]
+      },
+      {
+        "id": "recentActivity",
+        "gridSpan": "span 8",
+        "component": "recent-activity"
+      },
+      {
+        "id": "quickActions",
+        "gridSpan": "span 4",
+        "component": "quick-actions"
+      },
+      {
+        "id": "upcomingSchedule",
+        "gridSpan": "span 12",
+        "component": "upcoming-schedule"
+      }
+    ]
+  },
+  "pages": {
+    "beranda": {
+      "title": "Beranda",
+      "components": [
+        "global-progress-bar",
+        "stats-cards",
+        "recent-activity",
+        "quick-actions",
+        "upcoming-schedule"
+      ]
+    },
+    "profil": {
+      "title": "Profil Saya",
+      "components": [
+        "profile-header",
+        "personal-info-form",
+        "document-upload-section"
+      ]
+    },
+    "apl01": {
+      "title": "Form APL.01",
+      "subtitle": "Permohonan Sertifikasi",
+      "components": [
+        "apl01-header",
+        "personal-data-form",
+        "scheme-selection",
+        "purpose-selection"
+      ]
+    },
+    "apl02": {
+      "title": "Form APL.02",
+      "subtitle": "Asesmen Mandiri",
+      "components": [
+        "apl02-header",
+        "competence-units-table",
+        "evidence-upload-section"
+      ]
+    },
+    "jadwal": {
+      "title": "Jadwal & Status",
+      "components": [
+        "schedule-status-cards",
+        "schedule-timeline",
+        "assessment-details"
+      ]
+    },
+    "hasil": {
+      "title": "Hasil Asesmen",
+      "components": [
+        "results-summary",
+        "detailed-results",
+        "certificate-status"
+      ]
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "sidebar": {
+        "transform": "translateX(-100%)",
+        "transition": "transform 0.3s ease"
+      },
+      "mobileMenuOpen": {
+        "transform": "translateX(0%)"
+      },
+      "overlay": {
+        "display": "none",
+        "position": "fixed",
+        "top": "0px",
+        "left": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0.5)",
+        "zIndex": "99"
+      },
+      "contentArea": {
+        "marginLeft": "0px",
+        "padding": "16px"
+      },
+      "contentGrid": {
+        "gridTemplateColumns": "1fr",
+        "gap": "24px"
+      },
+      "pageTitle": {
+        "fontSize": "24px"
+      }
+    },
+    "tablet": {
+      "sidebar": {
+        "width": "280px"
+      },
+      "contentArea": {
+        "marginLeft": "280px",
+        "padding": "24px"
+      },
+      "contentGrid": {
+        "gridTemplateColumns": "repeat(8, 1fr)"
+      },
+      "stats": {
+        "gridSpan": "span 8"
+      },
+      "recentActivity": {
+        "gridSpan": "span 5"
+      },
+      "quickActions": {
+        "gridSpan": "span 3"
+      }
+    }
+  },
+  "mobileNavigation": {
+    "topbar": {
+      "height": "64px",
+      "backgroundColor": "#0A3D62",
+      "display": "flex",
+      "alignItems": "center",
+      "justifyContent": "space-between",
+      "padding": "0px 16px"
+    },
+    "menuButton": {
+      "backgroundColor": "transparent",
+      "borderColor": "transparent",
+      "color": "#FFFFFF",
+      "padding": "8px",
+      "borderRadius": "8px"
+    },
+    "pageTitle": {
+      "fontFamily": "Poppins",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "color": "#FFFFFF"
+    },
+    "userMenu": {
+      "width": "32px",
+      "height": "32px",
+      "borderRadius": "50%",
+      "borderWidth": "2px",
+      "borderColor": "rgba(255, 255, 255, 0.3)"
+    }
+  }
+}

@@ -1,0 +1,628 @@
+{
+  "componentName": "Statistical Overview Widgets",
+  "description": "Comprehensive statistical widgets and data visualization components",
+  "widgets": {
+    "statsCards": {
+      "componentName": "Statistics Cards",
+      "layout": {
+        "container": {
+          "display": "grid",
+          "gridTemplateColumns": "repeat(auto-fit, minmax(280px, 1fr))",
+          "gap": "24px",
+          "marginBottom": "32px"
+        }
+      },
+      "cardVariants": [
+        {
+          "type": "primary",
+          "title": "Total Peserta",
+          "value": "1,234",
+          "change": {
+            "value": "+12.5%",
+            "type": "positive",
+            "period": "dari bulan lalu"
+          },
+          "icon": "groups",
+          "color": "#4285F4",
+          "trend": "up",
+          "chartData": [100, 120, 110, 130, 125, 140, 135, 150, 145, 160, 155, 170]
+        },
+        {
+          "type": "success",
+          "title": "Tingkat Kelulusan",
+          "value": "89%",
+          "change": {
+            "value": "+5.2%",
+            "type": "positive",
+            "period": "dari kuartal lalu"
+          },
+          "icon": "trending_up",
+          "color": "#34A853",
+          "trend": "up",
+          "progress": 89
+        },
+        {
+          "type": "warning",
+          "title": "Jadwal Aktif",
+          "value": "8",
+          "change": {
+            "value": "+2",
+            "type": "positive",
+            "period": "minggu ini"
+          },
+          "icon": "event",
+          "color": "#FBBC04",
+          "trend": "up",
+          "badge": "3 hari ini"
+        },
+        {
+          "type": "info",
+          "title": "Asesor Tersedia",
+          "value": "24",
+          "change": {
+            "value": "+3",
+            "type": "positive",
+            "period": "bulan ini"
+          },
+          "icon": "person_search",
+          "color": "#2196F3",
+          "trend": "up",
+          "availability": "18 tersedia, 6 sibuk"
+        },
+        {
+          "type": "revenue",
+          "title": "Pendapatan Bulan Ini",
+          "value": "Rp 245 jt",
+          "change": {
+            "value": "+18.3%",
+            "type": "positive",
+            "period": "dari bulan lalu"
+          },
+          "icon": "payments",
+          "color": "#7C4DFF",
+          "trend": "up",
+          "chartData": [180, 195, 200, 220, 210, 235, 240, 245]
+        },
+        {
+          "type": "completion",
+          "title": "Penyelesaian Dokumen",
+          "value": "94%",
+          "change": {
+            "value": "+2.1%",
+            "type": "positive",
+            "period": "dari bulan lalu"
+          },
+          "icon": "assignment_turned_in",
+          "color": "#00BCD4",
+          "trend": "up",
+          "progress": 94
+        }
+      ],
+      "cardStructure": {
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+          "position": "relative",
+          "overflow": "hidden"
+        },
+        "header": {
+          "display": "flex",
+          "justifyContent": "space-between",
+          "alignItems": "flex-start",
+          "marginBottom": "16px"
+        },
+        "iconContainer": {
+          "width": "48px",
+          "height": "48px",
+          "borderRadius": "12px",
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": "16px"
+        },
+        "title": {
+          "fontFamily": "Roboto",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "#5F6368",
+          "marginBottom": "8px"
+        },
+        "value": {
+          "fontFamily": "Poppins",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "#1A1A1A",
+          "marginBottom": "8px"
+        },
+        "change": {
+          "display": "flex",
+          "alignItems": "center",
+          "gap": "4px",
+          "fontFamily": "Roboto",
+          "fontSize": "12px",
+          "fontWeight": "500"
+        },
+        "changePositive": {
+          "color": "#34A853"
+        },
+        "changeNegative": {
+          "color": "#EA4335"
+        },
+        "miniChart": {
+          "height": "40px",
+          "marginTop": "12px"
+        },
+        "progressBar": {
+          "height": "8px",
+          "borderRadius": "4px",
+          "backgroundColor": "#E8EAED",
+          "overflow": "hidden",
+          "marginTop": "12px"
+        },
+        "progressFill": {
+          "height": "100%",
+          "borderRadius": "4px",
+          "transition": "width 0.3s ease"
+        }
+      }
+    },
+    "chartWidgets": {
+      "registrationTrend": {
+        "componentName": "Registration Trend Chart",
+        "title": "Trend Pendaftaran",
+        "subtitle": "Jumlah pendaftar per bulan tahun 2024",
+        "type": "line",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "chart": {
+          "height": "300px",
+          "dataset": [
+            {
+              "label": "Pendaftaran Baru",
+              "data": [65, 78, 90, 81, 96, 105, 112, 125, 118, 132, 128, 145],
+              "borderColor": "#4285F4",
+              "backgroundColor": "rgba(66, 133, 244, 0.1)",
+              "fill": true,
+              "tension": 0.4
+            },
+            {
+              "label": "Terverifikasi",
+              "data": [55, 68, 82, 73, 88, 95, 102, 115, 108, 122, 118, 135],
+              "borderColor": "#34A853",
+              "backgroundColor": "rgba(52, 168, 83, 0.1)",
+              "fill": true,
+              "tension": 0.4
+            }
+          ],
+          "options": {
+            "responsive": true,
+            "maintainAspectRatio": false,
+            "plugins": {
+              "legend": {
+                "position": "top"
+              }
+            },
+            "scales": {
+              "y": {
+                "beginAtZero": true,
+                "grid": {
+                  "drawBorder": false
+                }
+              },
+              "x": {
+                "grid": {
+                  "display": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "schemeDistribution": {
+        "componentName": "Scheme Distribution Chart",
+        "title": "Distribusi Skema Sertifikasi",
+        "subtitle": "Peserta per skema sertifikasi",
+        "type": "doughnut",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "chart": {
+          "height": "300px",
+          "dataset": {
+            "data": [450, 320, 280, 180, 150],
+            "backgroundColor": [
+              "#4285F4",
+              "#34A853",
+              "#FBBC04",
+              "#EA4335",
+              "#9C27B0"
+            ],
+            "borderWidth": 2,
+            "borderColor": "#FFFFFF"
+          },
+          "labels": [
+            "Web Development",
+            "Mobile Development",
+            "Backend Development",
+            "UI/UX Design",
+            "DevOps"
+          ]
+        },
+        "legend": {
+          "position": "right",
+          "labels": {
+            "padding": 15,
+            "usePointStyle": true,
+            "font": {
+              "size": 12,
+              "family": "Roboto"
+            }
+          }
+        }
+      },
+      "assessmentResults": {
+        "componentName": "Assessment Results Chart",
+        "title": "Hasil Asesmen per Skema",
+        "subtitle": "Perbandingan hasil kompeten vs belum kompeten",
+        "type": "bar",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "chart": {
+          "height": "300px",
+          "dataset": [
+            {
+              "label": "Kompeten",
+              "data": [42, 35, 28, 18, 15],
+              "backgroundColor": "#34A853"
+            },
+            {
+              "label": "Belum Kompeten",
+              "data": [8, 7, 6, 4, 2],
+              "backgroundColor": "#EA4335"
+            }
+          ],
+          "labels": [
+            "Web Development",
+            "Mobile Development",
+            "Backend Development",
+            "UI/UX Design",
+            "DevOps"
+          ]
+        }
+      },
+      "monthlyRevenue": {
+        "componentName": "Monthly Revenue Chart",
+        "title": "Pendapatan Bulanan",
+        "subtitle": "Total pendapatan dari biaya sertifikasi",
+        "type": "bar",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "chart": {
+          "height": "300px",
+          "dataset": {
+            "label": "Pendapatan (Juta Rupiah)",
+            "data": [180, 195, 210, 190, 225, 245, 260, 275, 265, 290, 280, 310],
+            "backgroundColor": "rgba(124, 77, 255, 0.8)",
+            "borderColor": "#7C4DFF",
+            "borderWidth": 1
+          },
+          "options": {
+            "scales": {
+              "y": {
+                "beginAtZero": true,
+                "ticks": {
+                  "callback": "function(value) { return 'Rp ' + value + ' jt'; }"
+                }
+              }
+            }
+          }
+        }
+      },
+      "assessorWorkload": {
+        "componentName": "Assessor Workload Chart",
+        "title": "Beban Kerja Asesor",
+        "subtitle": "Jumlah penugasan per asesor",
+        "type": "horizontalBar",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "chart": {
+          "height": "300px",
+          "dataset": {
+            "label": "Jumlah Penugasan",
+            "data": [15, 12, 11, 9, 8, 7],
+            "backgroundColor": "#2196F3"
+          },
+          "labels": [
+            "Budi Santoso",
+            "Ahmad Wijaya",
+            "Siti Nurhaliza",
+            "Rudi Hermawan",
+            "Diana Putri",
+            "Eko Prasetyo"
+          ]
+        }
+      }
+    },
+    "tableWidgets": {
+      "topSchemes": {
+        "componentName": "Top Schemes Table",
+        "title": "Skema Terpopuler",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "table": {
+          "headers": ["Skema", "Peserta", "Kelulusan", "Rating"],
+          "rows": [
+            {
+              "scheme": "Junior Web Developer",
+              "participants": "450",
+              "passRate": "93%",
+              "rating": "4.8",
+              "trend": "up"
+            },
+            {
+              "scheme": "Mobile Developer",
+              "participants": "320",
+              "passRate": "89%",
+              "rating": "4.7",
+              "trend": "up"
+            },
+            {
+              "scheme": "Junior Backend Developer",
+              "participants": "280",
+              "passRate": "91%",
+              "rating": "4.6",
+              "trend": "stable"
+            }
+          ]
+        }
+      },
+      "recentAssessments": {
+        "componentName": "Recent Assessments Table",
+        "title": "Asesmen Terbaru",
+        "container": {
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+        },
+        "table": {
+          "headers": ["Tanggal", "Peserta", "Skema", "Asesor", "Hasil"],
+          "rows": [
+            {
+              "date": "28 Nov 2024",
+              "participant": "John Doe",
+              "scheme": "Web Dev",
+              "assessor": "Budi Santoso",
+              "result": {
+                "status": "kompeten",
+                "badge": "success"
+              }
+            },
+            {
+              "date": "27 Nov 2024",
+              "participant": "Jane Smith",
+              "scheme": "Mobile Dev",
+              "assessor": "Ahmad Wijaya",
+              "result": {
+                "status": "belum kompeten",
+                "badge": "error"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "activityFeed": {
+      "componentName": "Activity Feed",
+      "title": "Aktivitas Terkini",
+      "container": {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "12px",
+        "padding": "24px",
+        "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+        "maxHeight": "400px",
+        "overflow": "auto"
+      },
+      "activities": [
+        {
+          "type": "registration",
+          "user": "John Doe",
+          "action": "Mendaftar skema Junior Web Developer",
+          "time": "5 menit yang lalu",
+          "icon": "person_add",
+          "color": "#4CAF50"
+        },
+        {
+          "type": "verification",
+          "user": "Admin",
+          "action": "Memverifikasi dokumen Jane Smith",
+          "time": "1 jam yang lalu",
+          "icon": "fact_check",
+          "color": "#2196F3"
+        },
+        {
+          "type": "schedule",
+          "user": "Admin",
+          "action": "Menjadwalkan asesmen untuk 5 peserta",
+          "time": "2 jam yang lalu",
+          "icon": "event",
+          "color": "#FFC107"
+        },
+        {
+          "type": "result",
+          "user": "Asesor",
+          "action": "Menginput hasil asesmen",
+          "time": "3 jam yang lalu",
+          "icon": "assessment",
+          "color": "#9C27B0"
+        }
+      ],
+      "activityItem": {
+        "display": "flex",
+        "alignItems": "flex-start",
+        "gap": "12px",
+        "padding": "12px 0px",
+        "borderBottom": "1px solid #F5F6FA"
+      },
+      "icon": {
+        "width": "36px",
+        "height": "36px",
+        "borderRadius": "50%",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "flexShrink": 0
+      },
+      "content": {
+        "flex": "1"
+      },
+      "action": {
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "color": "#202124",
+        "marginBottom": "4px"
+      },
+      "user": {
+        "fontFamily": "Roboto",
+        "fontSize": "13px",
+        "fontWeight": "600",
+        "color": "#0A3D62"
+      },
+      "time": {
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "#9AA0A6"
+      }
+    }
+  },
+  "kpiMetrics": {
+    "componentName": "KPI Metrics Dashboard",
+    "sections": [
+      {
+        "title": "Operasional",
+        "metrics": [
+          {
+            "name": "Rata-rata Waktu Verifikasi",
+            "value": "2.3 hari",
+            "target": "≤ 3 hari",
+            "status": "good"
+          },
+          {
+            "name": "Tingkat Penyelesaian Dokumen",
+            "value": "94%",
+            "target": "≥ 90%",
+            "status": "good"
+          },
+          {
+            "name": "Utilisasi Asesor",
+            "value": "78%",
+            "target": "70-85%",
+            "status": "good"
+          }
+        ]
+      },
+      {
+        "title": "Keuangan",
+        "metrics": [
+          {
+            "name": "Biaya per Peserta",
+            "value": "Rp 2.1 jt",
+            "target": "≤ Rp 2.5 jt",
+            "status": "good"
+          },
+          {
+            "name": "Pendapatan Bulanan",
+            "value": "Rp 245 jt",
+            "target": "≥ Rp 200 jt",
+            "status": "good"
+          },
+          {
+            "name": "Biaya Operasional",
+            "value": "Rp 145 jt",
+            "target": "≤ Rp 150 jt",
+            "status": "good"
+          }
+        ]
+      },
+      {
+        "title": "Kualitas",
+        "metrics": [
+          {
+            "name": "Tingkat Kepuasan Peserta",
+            "value": "4.6/5.0",
+            "target": "≥ 4.0",
+            "status": "good"
+          },
+          {
+            "name": "Tingkat Kelulusan",
+            "value": "89%",
+            "target": "≥ 85%",
+            "status": "good"
+          },
+          {
+            "name": "Complaint Rate",
+            "value": "2.1%",
+            "target": "≤ 5%",
+            "status": "good"
+          }
+        ]
+      }
+    ]
+  },
+  "responsive": {
+    "mobile": {
+      "statsCards": {
+        "gridTemplateColumns": "1fr",
+        "gap": "16px"
+      },
+      "chartWidgets": {
+        "container": {
+          "padding": "16px"
+        },
+        "chart": {
+          "height": "250px"
+        }
+      },
+      "tableWidgets": {
+        "tableView": "compact"
+      }
+    },
+    "tablet": {
+      "statsCards": {
+        "gridTemplateColumns": "repeat(2, 1fr)"
+      },
+      "chartWidgets": {
+        "chart": {
+          "height": "275px"
+        }
+      }
+    }
+  }
+}

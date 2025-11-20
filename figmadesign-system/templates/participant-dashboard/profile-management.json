@@ -1,0 +1,374 @@
+{
+  "componentName": "Profile Management",
+  "description": "Participant profile management interface with document upload",
+  "layout": {
+    "container": {
+      "maxWidth": "1200px",
+      "margin": "0px auto",
+      "padding": "32px"
+    },
+    "contentGrid": {
+      "display": "grid",
+      "gridTemplateColumns": "1fr 2fr",
+      "gap": "32px"
+    }
+  },
+  "profileHeader": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+      "textAlign": "center"
+    },
+    "avatarSection": {
+      "container": {
+        "position": "relative",
+        "display": "inline-block",
+        "marginBottom": "24px"
+      },
+      "avatar": {
+        "width": "120px",
+        "height": "120px",
+        "borderRadius": "50%",
+        "borderWidth": "4px",
+        "borderColor": "#0A3D62",
+        "objectFit": "cover"
+      },
+      "uploadButton": {
+        "position": "absolute",
+        "bottom": "0px",
+        "right": "0px",
+        "width": "36px",
+        "height": "36px",
+        "backgroundColor": "#0A3D62",
+        "borderRadius": "50%",
+        "borderWidth": "3px",
+        "borderColor": "#FFFFFF",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "cursor": "pointer"
+      },
+      "uploadIcon": {
+        "width": "18px",
+        "height": "18px",
+        "color": "#FFFFFF"
+      }
+    },
+    "userInfo": {
+      "name": {
+        "fontFamily": "Poppins",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "margin": "0px 0px 8px 0px"
+      },
+      "email": {
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "margin": "0px 0px 4px 0px"
+      },
+      "phone": {
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "margin": "0px"
+      }
+    },
+    "statusBadge": {
+      "text": "Terverifikasi",
+      "variant": "badge.success",
+      "marginTop": "16px"
+    }
+  },
+  "personalInfoForm": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+    },
+    "sectionTitle": {
+      "text": "Informasi Pribadi",
+      "fontFamily": "Poppins",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "#1A1A1A",
+      "margin": "0px 0px 24px 0px"
+    },
+    "formGrid": {
+      "display": "grid",
+      "gridTemplateColumns": "1fr 1fr",
+      "gap": "24px"
+    },
+    "fullWidthFields": [
+      "address",
+      "about"
+    ],
+    "fields": [
+      {
+        "name": "fullName",
+        "label": "Nama Lengkap",
+        "type": "text",
+        "placeholder": "Masukkan nama lengkap",
+        "required": true,
+        "validation": "min:3|max:100"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "placeholder": "email@example.com",
+        "required": true,
+        "disabled": true,
+        "validation": "email"
+      },
+      {
+        "name": "phone",
+        "label": "Nomor Telepon",
+        "type": "tel",
+        "placeholder": "+62 812-3456-7890",
+        "required": true,
+        "validation": "phone"
+      },
+      {
+        "name": "placeOfBirth",
+        "label": "Tempat Lahir",
+        "type": "text",
+        "placeholder": "Kota/Kabupaten",
+        "required": true
+      },
+      {
+        "name": "dateOfBirth",
+        "label": "Tanggal Lahir",
+        "type": "date",
+        "required": true,
+        "validation": "age:18"
+      },
+      {
+        "name": "gender",
+        "label": "Jenis Kelamin",
+        "type": "radio",
+        "options": [
+          {"value": "L", "label": "Laki-laki"},
+          {"value": "P", "label": "Perempuan"}
+        ],
+        "required": true
+      },
+      {
+        "name": "address",
+        "label": "Alamat Lengkap",
+        "type": "textarea",
+        "placeholder": "Masukkan alamat lengkap",
+        "required": true,
+        "rows": 3,
+        "fullWidth": true
+      },
+      {
+        "name": "education",
+        "label": "Pendidikan Terakhir",
+        "type": "select",
+        "options": [
+          {"value": "sma", "label": "SMA/SMK"},
+          {"value": "d3", "label": "D3"},
+          {"value": "s1", "label": "S1"},
+          {"value": "s2", "label": "S2"},
+          {"value": "s3", "label": "S3"}
+        ],
+        "required": true
+      },
+      {
+        "name": "currentJob",
+        "label": "Pekerjaan Saat Ini",
+        "type": "text",
+        "placeholder": "Job title atau posisi",
+        "required": false
+      },
+      {
+        "name": "company",
+        "label": "Perusahaan/Institusi",
+        "type": "text",
+        "placeholder": "Nama perusahaan atau institusi",
+        "required": false
+      },
+      {
+        "name": "experience",
+        "label": "Pengalaman Kerja",
+        "type": "number",
+        "placeholder": "Jumlah tahun",
+        "required": false,
+        "min": 0,
+        "max": 50
+      }
+    ]
+  },
+  "documentUpload": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+      "marginTop": "32px"
+    },
+    "sectionTitle": {
+      "text": "Dokumen Pendukung",
+      "fontFamily": "Poppins",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "#1A1A1A",
+      "margin": "0px 0px 24px 0px"
+    },
+    "documents": [
+      {
+        "name": "ktp",
+        "label": "KTP",
+        "description": "Format: PDF/JPG, Maks: 3MB",
+        "required": true,
+        "accept": ".pdf,.jpg,.jpeg",
+        "maxSize": "3MB",
+        "type": "file"
+      },
+      {
+        "name": "ijazah",
+        "label": "Ijazah Terakhir",
+        "description": "Format: PDF, Maks: 5MB, Dilegalisir",
+        "required": true,
+        "accept": ".pdf",
+        "maxSize": "5MB",
+        "type": "file"
+      },
+      {
+        "name": "pasFoto",
+        "label": "Pas Foto",
+        "description": "Format: JPG/PNG, Maks: 2MB, 4x6cm, Background biru",
+        "required": true,
+        "accept": ".jpg,.jpeg,.png",
+        "maxSize": "2MB",
+        "type": "file",
+        "preview": true
+      },
+      {
+        "name": "cv",
+        "label": "Curriculum Vitae",
+        "description": "Format: PDF, Maks: 3MB",
+        "required": false,
+        "accept": ".pdf",
+        "maxSize": "3MB",
+        "type": "file"
+      },
+      {
+        "name": "suratKerja",
+        "label": "Surat Pengalaman Kerja",
+        "description": "Format: PDF, Maks: 5MB",
+        "required": false,
+        "accept": ".pdf",
+        "maxSize": "5MB",
+        "type": "file"
+      }
+    ],
+    "fileUploadComponent": {
+      "dragDropArea": {
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "borderColor": "#DADCE0",
+        "borderRadius": "12px",
+        "padding": "32px",
+        "textAlign": "center",
+        "backgroundColor": "#F8F9FA",
+        "cursor": "pointer",
+        "transition": "all 0.3s ease"
+      },
+      "dragDropHover": {
+        "borderColor": "#0A3D62",
+        "backgroundColor": "#E8F0FE"
+      },
+      "uploadIcon": {
+        "width": "48px",
+        "height": "48px",
+        "color": "#9AA0A6",
+        "marginBottom": "16px"
+      },
+      "uploadText": {
+        "title": "Drag & drop file di sini atau klik untuk browse",
+        "subtitle": "File yang diupload akan otomatis tersimpan"
+      }
+    }
+  },
+  "formActions": {
+    "container": {
+      "display": "flex",
+      "justifyContent": "flex-end",
+      "gap": "16px",
+      "marginTop": "32px"
+    },
+    "cancelButton": {
+      "text": "Batal",
+      "variant": "button.outline",
+      "action": "cancel"
+    },
+    "saveButton": {
+      "text": "Simpan Perubahan",
+      "variant": "button.primary",
+      "action": "saveProfile",
+      "icon": "save"
+    }
+  },
+  "notifications": {
+    "success": {
+      "title": "Profil berhasil diperbarui",
+      "message": "Perubahan profil Anda telah disimpan.",
+      "type": "toast.success"
+    },
+    "error": {
+      "title": "Terjadi kesalahan",
+      "message": "Silakan periksa kembali data yang Anda masukkan.",
+      "type": "toast.error"
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "contentGrid": {
+        "gridTemplateColumns": "1fr",
+        "gap": "24px"
+      },
+      "formGrid": {
+        "gridTemplateColumns": "1fr",
+        "gap": "16px"
+      },
+      "container": {
+        "padding": "16px"
+      },
+      "profileHeader": {
+        "padding": "24px"
+      },
+      "personalInfoForm": {
+        "padding": "24px"
+      },
+      "documentUpload": {
+        "padding": "24px"
+      },
+      "formActions": {
+        "flexDirection": "column",
+        "gap": "12px"
+      },
+      "saveButton": {
+        "width": "100%"
+      },
+      "cancelButton": {
+        "width": "100%"
+      }
+    },
+    "tablet": {
+      "contentGrid": {
+        "gridTemplateColumns": "1fr 2fr"
+      },
+      "formGrid": {
+        "gridTemplateColumns": "1fr"
+      }
+    }
+  }
+}

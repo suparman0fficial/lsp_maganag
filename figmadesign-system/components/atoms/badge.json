@@ -1,0 +1,120 @@
+{
+  "componentName": "Badge",
+  "description": "Status indicator badge with color variants",
+  "variants": {
+    "success": {
+      "default": {
+        "backgroundColor": "#E6F4EA",
+        "color": "#388E3C",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "padding": "6px 12px",
+        "borderRadius": "16px",
+        "borderColor": "transparent",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px"
+      },
+      "large": {
+        "fontSize": "14px",
+        "padding": "8px 16px",
+        "borderRadius": "20px"
+      }
+    },
+    "warning": {
+      "default": {
+        "backgroundColor": "#FFF8E1",
+        "color": "#F57C00",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "padding": "6px 12px",
+        "borderRadius": "16px",
+        "borderColor": "transparent",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px"
+      }
+    },
+    "error": {
+      "default": {
+        "backgroundColor": "#FFEBEE",
+        "color": "#D32F2F",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "padding": "6px 12px",
+        "borderRadius": "16px",
+        "borderColor": "transparent",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px"
+      }
+    },
+    "info": {
+      "default": {
+        "backgroundColor": "#E3F2FD",
+        "color": "#1976D2",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "padding": "6px 12px",
+        "borderRadius": "16px",
+        "borderColor": "transparent",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px"
+      }
+    },
+    "neutral": {
+      "default": {
+        "backgroundColor": "#F5F6FA",
+        "color": "#5F6368",
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "padding": "6px 12px",
+        "borderRadius": "16px",
+        "borderColor": "transparent",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px"
+      }
+    },
+    "outline": {
+      "success": {
+        "backgroundColor": "transparent",
+        "color": "#388E3C",
+        "borderColor": "#4CAF50",
+        "borderWidth": "1px"
+      },
+      "warning": {
+        "backgroundColor": "transparent",
+        "color": "#F57C00",
+        "borderColor": "#FFC107",
+        "borderWidth": "1px"
+      },
+      "error": {
+        "backgroundColor": "transparent",
+        "color": "#D32F2F",
+        "borderColor": "#F44336",
+        "borderWidth": "1px"
+      }
+    }
+  },
+  "dots": {
+    "default": {
+      "width": "8px",
+      "height": "8px",
+      "borderRadius": "50%"
+    },
+    "success": {
+      "backgroundColor": "#4CAF50"
+    },
+    "warning": {
+      "backgroundColor": "#FFC107"
+    },
+    "error": {
+      "backgroundColor": "#F44336"
+    },
+    "info": {
+      "backgroundColor": "#2196F3"
+    }
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "componentName": "Admin Verification Workflow",
+  "description": "Interactive prototype for admin verification and management processes",
+  "workflows": [
+    {
+      "name": "Participant Document Verification",
+      "description": "Admin workflow for verifying participant documents",
+      "startPoint": "Dashboard - Participant Notification",
+      "estimatedTime": "2-3 minutes per participant",
+      "screens": [
+        {
+          "id": "admin-dashboard",
+          "name": "Admin Dashboard",
+          "description": "Main admin dashboard with notifications",
+          "interactions": [
+            {
+              "element": "notification-badge",
+              "type": "click",
+              "action": "showNotifications",
+              "animation": "badge-pulse"
+            },
+            {
+              "element": "participants-card",
+              "type": "click",
+              "action": "navigateTo: participants",
+              "animation": "card-press"
+            },
+            {
+              "element": "pending-verification-count",
+              "type": "click",
+              "action": "navigateTo: participants?filter=pending",
+              "animation": "counter-highlight"
+            }
+          ],
+          "realTimeUpdates": {
+            "newRegistration": "notification-bell",
+            "documentUpload": "file-icon",
+            "statusChange": "refresh-data"
+          }
+        },
+        {
+          "id": "participants-table",
+          "name": "Participants Management Table",
+          "description": "Table with participant data and document status",
+          "interactions": [
+            {
+              "element": "search-bar",
+              "type": "input",
+              "action": "filterParticipants",
+              "animation": "search-focus"
+            },
+            {
+              "element": "status-filter",
+              "type": "change",
+              "action": "applyStatusFilter",
+              "animation": "filter-slide"
+            },
+            {
+              "element": "participant-row",
+              "type": "hover",
+              "action": "showRowActions",
+              "animation": "row-highlight"
+            },
+            {
+              "element": "verify-button",
+              "type": "click",
+              "action": "openVerificationModal",
+              "animation": "button-ripple"
+            },
+            {
+              "element": "bulk-select",
+              "type": "click",
+              "action": "toggleBulkSelection",
+              "animation": "checkbox-check"
+            },
+            {
+              "element": "bulk-actions",
+              "type": "click",
+              "action": "executeBulkAction",
+              "animation": "action-confirm"
+            }
+          ],
+          "tableFeatures": {
+            "sorting": {
+              "headersClickable": true,
+              "sortIndicator": true,
+              "multiSort": true
+            },
+            "pagination": {
+              "itemsPerPage": [10, 25, 50],
+              "pageNavigation": true
+            },
+            "realTimeUpdates": {
+              "statusChanges": true,
+              "newEntries": true,
+              "dataRefresh": "30 seconds"
+            }
+          }
+        },
+        {
+          "id": "verification-modal",
+          "name": "Document Verification Modal",
+          "description": "Modal for reviewing and verifying participant documents",
+          "interactions": [
+            {
+              "element": "document-preview",
+              "type": "click",
+              "action": "openFullScreenPreview",
+              "animation": "modal-expand"
+            },
+            {
+              "element": "zoom-controls",
+              "type": "click",
+              "action": "adjustZoom",
+              "animation": "scale-transition"
+            },
+            {
+              "element": "status-toggle",
+              "type": "change",
+              "action": "updateDocumentStatus",
+              "animation": "status-flip"
+            },
+            {
+              "element": "rejection-reason",
+              "type": "input",
+              "action": "addRejectionNote",
+              "animation": "field-expand"
+            },
+            {
+              "element": "previous-document",
+              "type": "click",
+              "action": "navigateDocument: prev",
+              "animation": "slide-left"
+            },
+            {
+              "element": "next-document",
+              "type": "click",
+              "action": "navigateDocument: next",
+              "animation": "slide-right"
+            },
+            {
+              "element": "approve-all",
+              "type": "click",
+              "action": "approveAllDocuments",
+              "animation": "success-confirm"
+            },
+            {
+              "element": "reject-button",
+              "type": "click",
+              "action": "showRejectionDialog",
+              "animation": "warning-pulse"
+            }
+          ],
+          "keyboardShortcuts": {
+            "next": "Arrow Right",
+            "previous": "Arrow Left",
+            "approve": "Ctrl+Enter",
+            "reject": "Ctrl+R",
+            "close": "Escape"
+          }
+        },
+        {
+          "id": "scheduling-interface",
+          "name": "Assessment Scheduling",
+          "description": "Calendar interface for scheduling assessments",
+          "interactions": [
+            {
+              "element": "calendar-day",
+              "type": "click",
+              "action": "selectDate",
+              "animation": "day-highlight"
+            },
+            {
+              "element": "create-schedule",
+              "type": "click",
+              "action": "openScheduleModal",
+              "animation": "modal-slide-up"
+            },
+            {
+              "element": "conflict-indicator",
+              "type": "hover",
+              "action": "showConflictDetails",
+              "animation": "tooltip-fade"
+            },
+            {
+              "element": "drag-schedule",
+              "type": "drag",
+              "action": "rescheduleAssessment",
+              "animation": "drag-preview"
+            },
+            {
+              "element": "assessor-availability",
+              "type": "click",
+              "action": "toggleAssessorAvailability",
+              "animation": "availability-toggle"
+            }
+          ],
+          "calendarFeatures": {
+            "views": ["month", "week", "day", "agenda"],
+            "conflictDetection": true,
+            "realTimeSync": true,
+            "bulkOperations": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Assessor Management Workflow",
+      "description": "Managing assessor profiles and assignments",
+      "startPoint": "Admin Dashboard - Assessor Management",
+      "estimatedTime": "5-8 minutes per assessor setup",
+      "screens": [
+        {
+          "id": "assessor-table",
+          "name": "Assessor Management Table",
+          "interactions": [
+            {
+              "element": "add-assessor",
+              "type": "click",
+              "action": "openAssessorForm",
+              "animation": "form-slide-up"
+            },
+            {
+              "element": "availability-toggle",
+              "type": "click",
+              "action": "updateAssessorStatus",
+              "animation": "status-switch"
+            },
+            {
+              "element": "workload-indicator",
+              "type": "hover",
+              "action": "showWorkloadDetails",
+              "animation": "chart-expand"
+            }
+          ]
+        },
+        {
+          "id": "assessor-form",
+          "name": "Assessor Creation/Edit Form",
+          "interactions": [
+            {
+              "element": "expertise-tags",
+              "type": "click",
+              "action": "addExpertise",
+              "animation": "tag-add"
+            },
+            {
+              "element": "file-upload",
+              "type": "drop",
+              "action": "processAssessorDocuments",
+              "animation": "file-process"
+            },
+            {
+              "element": "preview-certificate",
+              "type": "click",
+              "action": "showCertificatePreview",
+              "animation": "certificate-zoom"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dynamicUpdates": {
+    "realTimeNotifications": {
+      "newRegistration": {
+        "type": "info",
+        "icon": "person_add",
+        "action": "navigate: participants",
+        "autoDismiss": "5 seconds"
+      },
+      "documentUpload": {
+        "type": "success",
+        "icon": "upload_file",
+        "action": "refresh table",
+        "autoDismiss": "3 seconds"
+      },
+      "verificationNeeded": {
+        "type": "warning",
+        "icon": "fact_check",
+        "action": "navigate: verification",
+        "persistent": true
+      },
+      "schedulingConflict": {
+        "type": "error",
+        "icon": "error",
+        "action": "show conflict details",
+        "persistent": true
+      }
+    },
+    "dataSynchronization": {
+      "participantStatus": "immediate",
+      "scheduleChanges": "immediate",
+      "assessorAvailability": "immediate",
+      "statisticsUpdate": "every 30 seconds"
+    }
+  },
+  "bulkOperations": {
+    "participantVerification": {
+      "selectAll": true,
+      "selectByFilter": true,
+      "bulkApprove": true,
+      "bulkReject": true,
+      "bulkSchedule": true,
+      "bulkExport": true,
+      "progressIndicator": true,
+      "operationHistory": true
+    },
+    "scheduleManagement": {
+      "bulkCreate": true,
+      "bulkReschedule": true,
+      "bulkCancel": true,
+      "conflictCheck": true,
+      "notificationSystem": true
+    },
+    "dataManagement": {
+      "bulkImport": true,
+      "bulkExport": true,
+      "dataValidation": true,
+      "errorReporting": true,
+      "rollbackCapability": true
+    }
+  },
+  "confirmationDialogs": {
+    "deleteConfirmation": {
+      "title": "Hapus Data?",
+      "message": "Data yang dihapus tidak dapat dikembalikan. Apakah Anda yakin?",
+      "buttons": ["Batal", "Hapus"],
+      "type": "danger"
+    },
+    "bulkActionConfirmation": {
+      "title": "Konfirmasi Aksi Massal",
+      "message": "Akan memproses {count} item. Lanjutkan?",
+      "buttons": ["Batal", "Lanjutkan"],
+      "type": "warning"
+    },
+    "scheduleConflictConfirmation": {
+      "title": "Konflik Jadwal",
+      "message": "Jadwal bertabrakan dengan {conflict_count} jadwal lain. Tetap lanjutkan?",
+      "buttons": ["Batal", "Lihat Konflik", "Lanjutkan"],
+      "type": "warning"
+    }
+  },
+  "advancedFeatures": {
+    "searchAndFilter": {
+      "globalSearch": true,
+      "advancedFilters": true,
+      "savedFilters": true,
+      "searchHistory": true,
+      "quickFilters": ["pending", "verified", "scheduled", "completed"]
+    },
+    "dataVisualization": {
+      "interactiveCharts": true,
+      "drillDownCapability": true,
+      "exportCharts": true,
+      "realTimeUpdates": true
+    },
+    "keyboardShortcuts": {
+      "globalSearch": "Ctrl+K",
+      "newItem": "Ctrl+N",
+      "save": "Ctrl+S",
+      "refresh": "F5",
+      "help": "Ctrl+?",
+      "navigation": "Arrow keys, Tab"
+    },
+    "accessibility": {
+      "screenReaderSupport": true,
+      "keyboardNavigation": true,
+      "highContrastMode": true,
+      "reducedMotion": true
+    }
+  },
+  "responsiveDesign": {
+    "mobileAdaptations": {
+      "tableToCards": true,
+      "collapsibleSidebar": true,
+      "touchOptimizedActions": true,
+      "gestureSupport": ["swipe", "tap"]
+    },
+    "tabletAdaptations": {
+      "splitView": true,
+      "floatingPanels": true,
+      "stylusSupport": true
+    },
+    "desktopEnhancements": {
+      "hoverStates": true,
+      "keyboardNavigation": true,
+      "multipleWindows": true,
+      "dragAndDrop": true
+    }
+  },
+  "performanceOptimizations": {
+    "lazyLoading": {
+      "tableRows": true,
+      "images": true,
+      "charts": true,
+      "components": true
+    },
+    "caching": {
+      "apiResponses": true,
+      "userPreferences": true,
+      "filterStates": true
+    },
+    "virtualization": {
+      "largeLists": true,
+      "tables": true,
+      "dropdowns": true
+    }
+  },
+  "userTestingScenarios": [
+    {
+      "scenario": "High Volume Verification",
+      "description": "Admin processing 50+ verifications in one session",
+      "successCriteria": [
+        "Completes all verifications under 30 minutes",
+        "Uses bulk operations effectively",
+        "Maintains accuracy under pressure"
+      ]
+    },
+    {
+      "scenario": "Complex Scheduling",
+      "description": "Managing assessments with multiple conflicts",
+      "successCriteria": [
+        "Identifies all scheduling conflicts",
+        "Resolves conflicts efficiently",
+        "Communicates changes to stakeholders"
+      ]
+    },
+    {
+      "scenario": "Emergency Schedule Changes",
+      "description": "Last-minute changes to assessment schedules",
+      "successCriteria": [
+        "Makes changes quickly",
+        "Notifies affected parties",
+        "Documents reasons for changes"
+      ]
+    }
+  ]
+}

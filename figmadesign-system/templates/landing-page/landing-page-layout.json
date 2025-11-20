@@ -1,0 +1,107 @@
+{
+  "componentName": "Landing Page",
+  "description": "Main landing page for LSP-SI certification system",
+  "sections": {
+    "navigation": {
+      "component": "navbar",
+      "variant": "default",
+      "position": "sticky",
+      "top": "0px",
+      "zIndex": "1000",
+      "menuItems": [
+        {
+          "label": "Beranda",
+          "href": "#home",
+          "active": true
+        },
+        {
+          "label": "Skema Sertifikasi",
+          "href": "#schemes"
+        },
+        {
+          "label": "Tentang Kami",
+          "href": "#about"
+        },
+        {
+          "label": "FAQ",
+          "href": "#faq"
+        },
+        {
+          "label": "Kontak",
+          "href": "#contact"
+        }
+      ]
+    },
+    "hero": {
+      "component": "hero-section",
+      "background": {
+        "gradient": "linear-gradient(135deg, #0A3D62 0%, #4285F4 100%)",
+        "pattern": "abstract-pattern.svg"
+      },
+      "content": {
+        "textAlign": "left",
+        "maxWidth": "600px"
+      }
+    },
+    "schemes": {
+      "component": "certification-schemes",
+      "background": "#F5F6FA",
+      "title": "Skema Sertifikasi",
+      "subtitle": "Pilih skema yang sesuai dengan keahlian Anda"
+    },
+    "features": {
+      "component": "features-grid",
+      "background": "#FFFFFF",
+      "features": [
+        {
+          "icon": "verified",
+          "title": "Tersertifikasi BNSP",
+          "description": "Lembaga resmi yang terakreditasi oleh Badan Nasional Sertifikasi Profesi"
+        },
+        {
+          "icon": "schedule",
+          "title": "Jadwal Fleksibel",
+          "description": "Pilih waktu asesmen yang sesuai dengan ketersediaan Anda"
+        },
+        {
+          "icon": "school",
+          "title": "Asesor Kompeten",
+          "description": "Tim asesor berpengalaman dan tersertifikasi di bidangnya"
+        },
+        {
+          "icon": "workspace_premium",
+          "title": "Sertifikat Bergengsi",
+          "description": "Sertifikat profesional yang diakui secara nasional"
+        }
+      ]
+    },
+    "process": {
+      "component": "process-steps",
+      "background": "#F8F9FA",
+      "title": "Proses Sertifikasi",
+      "subtitle": "4 langkah mudah untuk mendapatkan sertifikasi profesional"
+    },
+    "testimonials": {
+      "component": "testimonials-carousel",
+      "background": "#FFFFFF",
+      "title": "Testimoni Peserta"
+    },
+    "schedule": {
+      "component": "schedule-grid",
+      "background": "#F5F6FA",
+      "title": "Jadwal Terbaru",
+      "subtitle": "Pilih jadwal asesmen yang tersedia"
+    },
+    "contact": {
+      "component": "contact-section",
+      "background": "#0A3D62",
+      "title": "Hubungi Kami",
+      "subtitle": "Ada pertanyaan? Tim kami siap membantu Anda"
+    },
+    "footer": {
+      "component": "footer",
+      "background": "#031A2D",
+      "copyright": "© 2024 LSP-SI. All rights reserved."
+    }
+  }
+}
