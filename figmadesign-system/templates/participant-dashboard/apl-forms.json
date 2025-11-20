@@ -1,0 +1,434 @@
+{
+  "componentName": "APL Forms",
+  "description": "APL.01 and APL.02 forms for BNSP certification standards",
+  "apl01": {
+    "componentName": "APL.01 Form",
+    "description": "Permohonan Sertifikasi form following BNSP standards",
+    "layout": {
+      "container": {
+        "maxWidth": "1000px",
+        "margin": "0px auto",
+        "padding": "32px"
+      },
+      "formContainer": {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "12px",
+        "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+      }
+    },
+    "header": {
+      "formTitle": {
+        "text": "Formulir APL.01",
+        "subtitle": "Permohonan Sertifikasi",
+        "fontFamily": "Poppins",
+        "fontSize": "28px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "description": {
+        "text": "Formulir permohonan sertifikasi kompetensi sesuai standar BNSP",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "marginBottom": "32px"
+      },
+      "formNumber": {
+        "text": "No. Form: APL.01/LSP-SI/2024",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "color": "#9AA0A6"
+      }
+    },
+    "sections": [
+      {
+        "title": "A. Data Pemohon",
+        "id": "personalData",
+        "fields": [
+          {
+            "name": "registrationNumber",
+            "label": "Nomor Registrasi",
+            "type": "text",
+            "placeholder": "Auto-generated",
+            "disabled": true,
+            "value": "REG-2024-001234"
+          },
+          {
+            "name": "fullName",
+            "label": "Nama Lengkap",
+            "type": "text",
+            "required": true,
+            "validation": "min:3|max:100"
+          },
+          {
+            "name": "idNumber",
+            "label": "Nomor KTP/NIK",
+            "type": "text",
+            "required": true,
+            "validation": "min:16|max:16"
+          },
+          {
+            "name": "birthPlace",
+            "label": "Tempat Lahir",
+            "type": "text",
+            "required": true
+          },
+          {
+            "name": "birthDate",
+            "label": "Tanggal Lahir",
+            "type": "date",
+            "required": true
+          },
+          {
+            "name": "gender",
+            "label": "Jenis Kelamin",
+            "type": "radio",
+            "options": [
+              {"value": "L", "label": "Laki-laki"},
+              {"value": "P", "label": "Perempuan"}
+            ],
+            "required": true
+          },
+          {
+            "name": "nationality",
+            "label": "Kewarganegaraan",
+            "type": "select",
+            "options": [
+              {"value": "WNI", "label": "Warga Negara Indonesia"},
+              {"value": "WNA", "label": "Warga Negara Asing"}
+            ],
+            "required": true
+          },
+          {
+            "name": "address",
+            "label": "Alamat Lengkap",
+            "type": "textarea",
+            "required": true,
+            "rows": 3
+          },
+          {
+            "name": "phone",
+            "label": "Nomor Telepon/HP",
+            "type": "tel",
+            "required": true
+          },
+          {
+            "name": "email",
+            "label": "Email",
+            "type": "email",
+            "required": true
+          },
+          {
+            "name": "education",
+            "label": "Pendidikan Terakhir",
+            "type": "select",
+            "options": [
+              {"value": "sma", "label": "SMA/SMK"},
+              {"value": "d3", "label": "D3"},
+              {"value": "s1", "label": "S1"},
+              {"value": "s2", "label": "S2"},
+              {"value": "s3", "label": "S3"}
+            ],
+            "required": true
+          }
+        ]
+      },
+      {
+        "title": "B. Skema Sertifikasi",
+        "id": "certificationScheme",
+        "fields": [
+          {
+            "name": "scheme",
+            "label": "Pilih Skema Sertifikasi",
+            "type": "radio-card",
+            "options": [
+              {
+                "value": "junior-web",
+                "title": "Junior Web Developer",
+                "description": "Frontend development dengan HTML, CSS, JavaScript",
+                "code": "SK.WEB.001",
+                "duration": "2 hari"
+              },
+              {
+                "value": "junior-backend",
+                "title": "Junior Backend Developer",
+                "description": "Server-side development dengan database integration",
+                "code": "SK.BEK.001",
+                "duration": "3 hari"
+              },
+              {
+                "value": "mobile-dev",
+                "title": "Mobile Developer",
+                "description": "Android/iOS app development",
+                "code": "SK.MOB.001",
+                "duration": "3 hari"
+              }
+            ],
+            "required": true
+          }
+        ]
+      },
+      {
+        "title": "C. Tujuan Sertifikasi",
+        "id": "certificationPurpose",
+        "fields": [
+          {
+            "name": "purpose",
+            "label": "Tujuan Mengikuti Sertifikasi",
+            "type": "radio",
+            "options": [
+              {"value": "new", "label": "Sertifikasi Baru"},
+              {"value": "renewal", "label": "Perpanjangan (Pembaruan)"},
+              {"value": "upgrade", "label": "Penyesuaian/Peningkatan Kompetensi"}
+            ],
+            "required": true
+          }
+        ]
+      },
+      {
+        "title": "D. Pernyataan",
+        "id": "declaration",
+        "fields": [
+          {
+            "name": "agreement",
+            "type": "checkbox-group",
+            "options": [
+              {
+                "value": "dataTrue",
+                "label": "Saya menyatakan bahwa data yang saya berikan adalah benar dan dapat dipertanggungjawabkan.",
+                "required": true
+              },
+              {
+                "value": "requirementsMet",
+                "label": "Saya memenuhi persyaratan untuk mengikuti sertifikasi ini.",
+                "required": true
+              },
+              {
+                "value": "processAgree",
+                "label": "Saya setuju untuk mengikuti proses sertifikasi sesuai ketentuan yang berlaku.",
+                "required": true
+              },
+              {
+                "value": "ethicalAgree",
+                "label": "Saya berjanji akan bertindak secara etis selama proses asesmen berlangsung.",
+                "required": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "formActions": {
+      "saveDraft": {
+        "text": "Simpan Draft",
+        "variant": "button.outline",
+        "action": "saveDraft"
+      },
+      "next": {
+        "text": "Lanjut ke APL.02",
+        "variant": "button.primary",
+        "action": "navigateToAPL02"
+      },
+      "submit": {
+        "text": "Ajukan Sertifikasi",
+        "variant": "button.primary.success",
+        "action": "submitApplication"
+      }
+    }
+  },
+  "apl02": {
+    "componentName": "APL.02 Form",
+    "description": "Asesmen Mandiri form following BNSP standards",
+    "layout": {
+      "container": {
+        "maxWidth": "1200px",
+        "margin": "0px auto",
+        "padding": "32px"
+      }
+    },
+    "header": {
+      "formTitle": {
+        "text": "Formulir APL.02",
+        "subtitle": "Asesmen Mandiri",
+        "fontFamily": "Poppins",
+        "fontSize": "28px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "description": {
+        "text": "Evaluasi diri terhadap unit kompetensi yang akan diasesmen",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "marginBottom": "32px"
+      },
+      "schemeInfo": {
+        "badge": "Junior Web Developer",
+        "code": "SK.WEB.001"
+      }
+    },
+    "competenceUnits": {
+      "title": "Unit Kompetensi",
+      "description": "Beri penilaian terhadap setiap unit kompetensi di bawah ini",
+      "table": {
+        "headers": [
+          { "label": "Kode", "width": "10%" },
+          { "label": "Unit Kompetensi", "width": "50%" },
+          { "label": "K/BK", "width": "15%" },
+          { "label": "Bukti Pendukung", "width": "15%" },
+          { "label": "Aksi", "width": "10%" }
+        ],
+        "rows": [
+          {
+            "code": "M.710001.001.1",
+            "title": "Menganalisis kebutuhan perangkat lunak",
+            "description": "Melakukan analisis terhadap kebutuhan user requirement",
+            "kompetensi": ["K", "BK"],
+            "required": true
+          },
+          {
+            "code": "M.710001.001.2",
+            "title": "Merancang basis data",
+            "description": "Mendesain struktur database sesuai kebutuhan aplikasi",
+            "kompetensi": ["K", "BK"],
+            "required": true
+          },
+          {
+            "code": "M.710001.001.3",
+            "title": "Membuat perangkat lunak berbasis web",
+            "description": "Mengembangkan aplikasi web menggunakan HTML, CSS, JavaScript",
+            "kompetensi": ["K", "BK"],
+            "required": true
+          },
+          {
+            "code": "M.710001.001.4",
+            "title": "Melakukan testing perangkat lunak",
+            "description": "Melakukan unit testing dan integration testing",
+            "kompetensi": ["K", "BK"],
+            "required": true
+          },
+          {
+            "code": "M.710001.001.5",
+            "title": "Melakukan deployment",
+            "description": "Mendeplikasi aplikasi ke server production",
+            "kompetensi": ["K", "BK"],
+            "required": true
+          }
+        ]
+      }
+    },
+    "evidenceUpload": {
+      "title": "Upload Bukti Pendukung",
+      "description": "Upload dokumen yang mendukung klaim kompetensi Anda",
+      "categories": [
+        {
+          "name": "portofolio",
+          "label": "Portofolio Projek",
+          "description": "Screenshot/demo aplikasi yang pernah dibuat",
+          "multiple": true,
+          "accept": ".pdf,.jpg,.jpeg,.png,.zip",
+          "maxSize": "10MB"
+        },
+        {
+          "name": "sertifikat",
+          "label": "Sertifikat Pelatihan",
+          "description": "Sertifikat pendukung keahlian terkait",
+          "multiple": true,
+          "accept": ".pdf",
+          "maxSize": "5MB"
+        },
+        {
+          "name": "experience",
+          "label": "Bukti Pengalaman Kerja",
+          "description": "Surat referensi atau kontrak kerja",
+          "multiple": true,
+          "accept": ".pdf",
+          "maxSize": "5MB"
+        }
+      ]
+    },
+    "summary": {
+      "title": "Ringkasan Penilaian Diri",
+      "stats": {
+        "total": "Total Unit Kompetensi",
+        "kompeten": "Dinyatakan Kompeten",
+        "belum": "Belum Kompeten",
+        "percentage": "Persentase Kompetensi"
+      },
+      "chart": {
+        "type": "pie",
+        "data": [
+          { "label": "Kompeten", "value": 0, "color": "#4CAF50" },
+          { "label": "Belum Kompeten", "value": 0, "color": "#F44336" }
+        ]
+      }
+    },
+    "formActions": {
+      "back": {
+        "text": "Kembali ke APL.01",
+        "variant": "button.outline",
+        "action": "navigateToAPL01"
+      },
+      "saveDraft": {
+        "text": "Simpan Draft",
+        "variant": "button.outline",
+        "action": "saveDraft"
+      },
+      "submit": {
+        "text": "Ajukan Asesmen",
+        "variant": "button.primary",
+        "action": "submitAssessment"
+      }
+    }
+  },
+  "validation": {
+    "apl01": {
+      "requiredSections": ["personalData", "certificationScheme", "certificationPurpose", "declaration"],
+      "fieldValidation": {
+        "fullName": "required|min:3|max:100",
+        "idNumber": "required|min:16|max:16|numeric",
+        "email": "required|email",
+        "phone": "required|phone",
+        "scheme": "required"
+      }
+    },
+    "apl02": {
+      "requiredSections": ["competenceUnits", "evidenceUpload"],
+      "fieldValidation": {
+        "kompetensiUnit": "required",
+        "buktiPendukung": "file|mimes:pdf,jpg,jpeg,png|max:10240"
+      }
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "apl01": {
+        "formContainer": {
+          "padding": "16px"
+        },
+        "sections": {
+          "padding": "16px"
+        },
+        "formGrid": {
+          "gridTemplateColumns": "1fr"
+        },
+        "schemeCards": {
+          "stacked": true
+        }
+      },
+      "apl02": {
+        "competenceTable": {
+          "view": "cards",
+          "stacked": true
+        },
+        "tableHeaders": {
+          "hidden": true
+        }
+      }
+    }
+  }
+}

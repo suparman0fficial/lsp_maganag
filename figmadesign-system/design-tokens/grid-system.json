@@ -1,0 +1,62 @@
+{
+  "breakpoints": {
+    "mobile": {
+      "name": "Mobile",
+      "maxWidth": "425px",
+      "columns": 4,
+      "gutter": "16px",
+      "containerPadding": "16px"
+    },
+    "tablet": {
+      "name": "Tablet",
+      "minWidth": "426px",
+      "maxWidth": "768px",
+      "columns": 8,
+      "gutter": "24px",
+      "containerPadding": "24px"
+    },
+    "desktop": {
+      "name": "Desktop",
+      "minWidth": "769px",
+      "maxWidth": "1440px",
+      "columns": 12,
+      "gutter": "32px",
+      "containerPadding": "32px"
+    },
+    "large": {
+      "name": "Large Desktop",
+      "minWidth": "1441px",
+      "columns": 12,
+      "gutter": "32px",
+      "containerPadding": "48px"
+    }
+  },
+  "containers": {
+    "mobile": {
+      "maxWidth": "375px"
+    },
+    "desktop": {
+      "maxWidth": "1440px"
+    }
+  },
+  "layoutComponents": {
+    "sidebar": {
+      "width": {
+        "desktop": "250px",
+        "mobile": "280px"
+      }
+    },
+    "topbar": {
+      "height": {
+        "desktop": "72px",
+        "mobile": "64px"
+      }
+    },
+    "card": {
+      "padding": {
+        "desktop": "32px",
+        "mobile": "24px"
+      }
+    }
+  }
+}

@@ -1,0 +1,481 @@
+{
+  "componentName": "Scheduling System",
+  "description": "Interactive calendar-based scheduling system for assessments",
+  "layout": {
+    "container": {
+      "maxWidth": "1400px",
+      "margin": "0px auto",
+      "padding": "32px"
+    }
+  },
+  "header": {
+    "titleSection": {
+      "title": {
+        "text": "Penjadwalan Asesmen",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "subtitle": {
+        "text": "Kelola jadwal asesmen dan alokasi asesor",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "actionsSection": {
+      "buttons": [
+        {
+          "text": "Import Jadwal",
+          "variant": "button.outline",
+          "icon": "upload_file",
+          "action": "importSchedule"
+        },
+        {
+          "text": "Export Jadwal",
+          "variant": "button.outline",
+          "icon": "download",
+          "action": "exportSchedule"
+        },
+        {
+          "text": "Buat Jadwal Baru",
+          "variant": "button.primary",
+          "icon": "add",
+          "action": "createSchedule"
+        }
+      ]
+    }
+  },
+  "calendarView": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "padding": "24px",
+      "marginBottom": "24px"
+    },
+    "controls": {
+      "container": {
+        "display": "flex",
+        "justifyContent": "space-between",
+        "alignItems": "center",
+        "marginBottom": "24px",
+        "flexWrap": "wrap",
+        "gap": "16px"
+      },
+      "viewControls": {
+        "viewTypes": [
+          { "value": "month", "label": "Bulan" },
+          { "value": "week", "label": "Minggu" },
+          { "value": "day", "label": "Hari" },
+          { "value": "list", "label": "Daftar" }
+        ],
+        "selected": "month"
+      },
+      "navigation": {
+        "currentMonth": "November 2024",
+        "previous": { "enabled": true },
+        "next": { "enabled": true },
+        "today": { "enabled": true }
+      },
+      "filters": {
+        "schemeFilter": {
+          "placeholder": "Filter skema..."
+        },
+        "assessorFilter": {
+          "placeholder": "Filter asesor..."
+        },
+        "locationFilter": {
+          "placeholder": "Filter lokasi..."
+        }
+      }
+    },
+    "calendarGrid": {
+      "weekdays": ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+      "cells": {
+        "empty": {
+          "backgroundColor": "#FAFAFA",
+          "borderColor": "#E8EAED"
+        },
+        "currentMonth": {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#E8EAED"
+        },
+        "otherMonth": {
+          "backgroundColor": "#F8F9FA",
+          "borderColor": "#F0F2F5",
+          "color": "#9AA0A6"
+        },
+        "today": {
+          "backgroundColor": "#E8F0FE",
+          "borderColor": "#4285F4"
+        },
+        "withEvents": {
+          "indicator": true
+        }
+      },
+      "events": {
+        "assessment": {
+          "backgroundColor": "#0A3D62",
+          "textColor": "#FFFFFF",
+          "borderRadius": "4px",
+          "padding": "2px 6px",
+          "fontSize": "11px",
+          "maxWidth": "100%"
+        },
+        "multipleEvents": {
+          "showCount": true,
+          "backgroundColor": "#E8F0FE",
+          "textColor": "#0A3D62"
+        }
+      }
+    }
+  },
+  "scheduleModal": {
+    "componentName": "Create/Edit Schedule Modal",
+    "container": {
+      "maxWidth": "700px",
+      "maxHeight": "90vh",
+      "overflow": "auto"
+    },
+    "header": {
+      "title": "Buat Jadwal Asesmen",
+      "subtitle": "Isi detail jadwal asesmen yang akan dibuat"
+    },
+    "form": {
+      "sections": [
+        {
+          "title": "Informasi Dasar",
+          "fields": [
+            {
+              "name": "scheme",
+              "label": "Skema Sertifikasi",
+              "type": "select",
+              "required": true,
+              "options": [
+                { "value": "web", "label": "Junior Web Developer", "code": "SK.WEB.001" },
+                { "value": "mobile", "label": "Mobile Developer", "code": "SK.MOB.001" },
+                { "value": "backend", "label": "Junior Backend Developer", "code": "SK.BEK.001" }
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Judul Asesmen",
+              "type": "text",
+              "placeholder": "Contoh: Batch 1 - November 2024",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Deskripsi",
+              "type": "textarea",
+              "placeholder": "Deskripsi tambahan untuk asesmen ini",
+              "rows": 3
+            }
+          ]
+        },
+        {
+          "title": "Waktu dan Tempat",
+          "fields": [
+            {
+              "name": "date",
+              "label": "Tanggal Asesmen",
+              "type": "date",
+              "required": true,
+              "minDate": "today"
+            },
+            {
+              "name": "startTime",
+              "label": "Waktu Mulai",
+              "type": "time",
+              "required": true
+            },
+            {
+              "name": "endTime",
+              "label": "Waktu Selesai",
+              "type": "time",
+              "required": true
+            },
+            {
+              "name": "duration",
+              "label": "Durasi (Jam)",
+              "type": "number",
+              "readonly": true,
+              "calculated": true
+            },
+            {
+              "name": "location",
+              "label": "Tempat Uji Kompetensi (TUK)",
+              "type": "select",
+              "required": true,
+              "options": [
+                { "value": "lab1", "label": "Lab Komputer 1", "capacity": 15 },
+                { "value": "lab2", "label": "Lab Komputer 2", "capacity": 20 },
+                { "value": "lab3", "label": "Lab Mobile", "capacity": 10 },
+                { "value": "room1", "label": "Ruang Teori 1", "capacity": 25 },
+                { "value": "room2", "label": "Ruang Teori 2", "capacity": 30 }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Asesor",
+          "fields": [
+            {
+              "name": "primaryAssessor",
+              "label": "Asesor Utama",
+              "type": "select",
+              "required": true,
+              "options": [
+                { "value": "ass1", "label": "Budi Santoso, S.Kom", "expertise": "Web Development" },
+                { "value": "ass2", "label": "Ahmad Wijaya, M.Kom", "expertise": "Mobile Development" },
+                { "value": "ass3", "label": "Siti Nurhaliza, S.T", "expertise": "Backend Development" }
+              ]
+            },
+            {
+              "name": "secondaryAssessor",
+              "label": "Asesor Pendamping (Opsional)",
+              "type": "select",
+              "required": false,
+              "options": [
+                { "value": "", "label": "Tidak ada" },
+                { "value": "ass1", "label": "Budi Santoso, S.Kom", "expertise": "Web Development" },
+                { "value": "ass2", "label": "Ahmad Wijaya, M.Kom", "expertise": "Mobile Development" }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Peserta",
+          "fields": [
+            {
+              "name": "maxParticipants",
+              "label": "Kuota Maksimal",
+              "type": "number",
+              "required": true,
+              "min": 1,
+              "max": 50,
+              "default": 20
+            },
+            {
+              "name": "participants",
+              "label": "Pilih Peserta",
+              "type": "multi-select",
+              "placeholder": "Cari dan pilih peserta...",
+              "searchable": true,
+              "options": [
+                { "value": "p1", "label": "John Doe (REG-2024-001234)", "status": "verified" },
+                { "value": "p2", "label": "Jane Smith (REG-2024-001235)", "status": "verified" },
+                { "value": "p3", "label": "Ahmad Fadli (REG-2024-001236)", "status": "verified" }
+              ]
+            },
+            {
+              "name": "autoAssign",
+              "label": "Assign otomatis peserta terverifikasi",
+              "type": "checkbox",
+              "description": "Secara otomatis menambahkan peserta yang sudah terverifikasi untuk skema ini"
+            }
+          ]
+        }
+      ]
+    },
+    "summary": {
+      "title": "Ringkasan Jadwal",
+      "details": {
+        "scheme": "Junior Web Developer",
+        "date": "28 November 2024",
+        "time": "09:00 - 17:00",
+        "location": "Lab Komputer 1",
+        "assessor": "Budi Santoso, S.Kom",
+        "participants": "15 peserta"
+      }
+    },
+    "actions": [
+      {
+        "text": "Batal",
+        "variant": "button.outline",
+        "action": "cancel"
+      },
+      {
+        "text": "Simpan Draft",
+        "variant": "button.outline",
+        "action": "saveDraft"
+      },
+      {
+        "text": "Buat Jadwal",
+        "variant": "button.primary",
+        "action": "createSchedule"
+      }
+    ]
+  },
+  "scheduleList": {
+    "componentName": "Schedule List View",
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "padding": "24px"
+    },
+    "filters": {
+      "dateRange": {
+        "start": "startDate",
+        "end": "endDate",
+        "label": "Filter Tanggal"
+      },
+      "statusFilter": {
+        "options": [
+          { "value": "", "label": "Semua Status" },
+          { "value": "upcoming", "label": "Akan Datang" },
+          { "value": "ongoing", "label": "Sedang Berlangsung" },
+          { "value": "completed", "label": "Selesai" },
+          { "value": "cancelled", "label": "Dibatalkan" }
+        ]
+      }
+    },
+    "table": {
+      "headers": [
+        "Tanggal",
+        "Skema",
+        "Judul",
+        "Peserta",
+        "Asesor",
+        "Lokasi",
+        "Status",
+        "Aksi"
+      ],
+      "rows": [
+        {
+          "date": "28 Nov 2024",
+          "time": "09:00 - 17:00",
+          "scheme": "Junior Web Developer",
+          "title": "Batch 1 - November 2024",
+          "participants": "15/20",
+          "assessor": "Budi Santoso",
+          "location": "Lab Komputer 1",
+          "status": {
+            "value": "upcoming",
+            "label": "Akan Datang",
+            "color": "#2196F3"
+          },
+          "actions": [
+            { "type": "view", "icon": "visibility", "label": "Lihat" },
+            { "type": "edit", "icon": "edit", "label": "Edit" },
+            { "type": "participants", "icon": "groups", "label": "Peserta" },
+            { "type": "cancel", "icon": "cancel", "label": "Batal" }
+          ]
+        }
+      ]
+    }
+  },
+  "participantAssignment": {
+    "componentName": "Participant Assignment Modal",
+    "container": {
+      "maxWidth": "800px"
+    },
+    "header": {
+      "title": "Kelola Peserta",
+      "scheduleInfo": {
+        "scheme": "Junior Web Developer",
+        "date": "28 November 2024",
+        "quota": "15 dari 20 peserta"
+      }
+    },
+    "tabs": [
+      {
+        "id": "assigned",
+        "label": "Peserta Diassigned (15)",
+        "content": "assignedParticipantsTable"
+      },
+      {
+        "id": "available",
+        "label": "Peserta Tersedia (23)",
+        "content": "availableParticipantsTable"
+      }
+    ],
+    "actions": [
+      {
+        "text": "Kembali",
+        "variant": "button.outline",
+        "action": "close"
+      },
+      {
+        "text": "Simpan Perubahan",
+        "variant": "button.primary",
+        "action": "saveChanges"
+      }
+    ]
+  },
+  "conflictDetection": {
+    "componentName": "Schedule Conflict Detection",
+    "types": [
+      {
+        "type": "assessor_conflict",
+        "message": "Asesor sudah dijadwalkan pada waktu yang sama",
+        "severity": "error"
+      },
+      {
+        "type": "location_conflict",
+        "message": "Lokasi sudah digunakan pada waktu yang sama",
+        "severity": "error"
+      },
+      {
+        "type": "participant_conflict",
+        "message": "Peserta sudah dijadwalkan pada asesmen lain",
+        "severity": "warning"
+      },
+      {
+        "type": "capacity_conflict",
+        "message": "Jumlah peserta melebihi kapasitas lokasi",
+        "severity": "warning"
+      }
+    ]
+  },
+  "responsive": {
+    "mobile": {
+      "calendarView": {
+        "container": {
+          "padding": "16px"
+        },
+        "controls": {
+          "container": {
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "gap": "12px"
+          }
+        },
+        "calendarGrid": {
+          "compactMode": true,
+          "fontSize": "12px"
+        }
+      },
+      "scheduleList": {
+        "tableView": "cards",
+        "cardStructure": {
+          "header": {
+            "scheme": true,
+            "date": true,
+            "status": true
+          },
+          "details": {
+            "title": true,
+            "participants": true,
+            "assessor": true,
+            "location": true
+          }
+        }
+      },
+      "scheduleModal": {
+        "container": {
+          "maxWidth": "95vw",
+          "padding": "16px"
+        },
+        "formSections": {
+          "singleColumn": true
+        }
+      }
+    }
+  }
+}

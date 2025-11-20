@@ -1,0 +1,222 @@
+{
+  "componentName": "Progress Stepper",
+  "description": "Multi-step progress indicator with states and transitions",
+  "variants": {
+    "horizontal": {
+      "default": {
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "space-between",
+        "position": "relative",
+        "padding": "32px 0px"
+      },
+      "container": {
+        "maxWidth": "600px",
+        "margin": "0px auto"
+      }
+    },
+    "vertical": {
+      "default": {
+        "display": "flex",
+        "flexDirection": "column",
+        "padding": "24px 0px"
+      }
+    }
+  },
+  "step": {
+    "container": {
+      "display": "flex",
+      "flexDirection": "column",
+      "alignItems": "center",
+      "position": "relative",
+      "zIndex": "2",
+      "flex": "1"
+    },
+    "circle": {
+      "default": {
+        "width": "48px",
+        "height": "48px",
+        "borderRadius": "50%",
+        "borderWidth": "3px",
+        "borderColor": "#DADCE0",
+        "backgroundColor": "#FFFFFF",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "fontFamily": "Roboto",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "color": "#9AA0A6",
+        "position": "relative",
+        "transition": "all 0.3s ease"
+      },
+      "active": {
+        "borderColor": "#0A3D62",
+        "backgroundColor": "#0A3D62",
+        "color": "#FFFFFF",
+        "boxShadow": "0px 0px 0px 6px rgba(10, 61, 98, 0.1)"
+      },
+      "completed": {
+        "borderColor": "#4CAF50",
+        "backgroundColor": "#4CAF50",
+        "color": "#FFFFFF"
+      },
+      "small": {
+        "width": "36px",
+        "height": "36px",
+        "fontSize": "14px"
+      }
+    },
+    "label": {
+      "default": {
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "color": "#5F6368",
+        "marginTop": "12px",
+        "textAlign": "center",
+        "maxWidth": "120px"
+      },
+      "active": {
+        "color": "#0A3D62",
+        "fontWeight": "600"
+      },
+      "completed": {
+        "color": "#388E3C",
+        "fontWeight": "600"
+      }
+    },
+    "description": {
+      "default": {
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "#9AA0A6",
+        "marginTop": "4px",
+        "textAlign": "center",
+        "maxWidth": "140px"
+      }
+    }
+  },
+  "connector": {
+    "horizontal": {
+      "default": {
+        "position": "absolute",
+        "top": "24px",
+        "left": "50%",
+        "width": "100%",
+        "height": "3px",
+        "backgroundColor": "#DADCE0",
+        "zIndex": "1",
+        "transform": "translateY(-50%)"
+      },
+      "active": {
+        "backgroundColor": "#4CAF50"
+      },
+      "left": {
+        "right": "50%",
+        "left": "0%"
+      },
+      "right": {
+        "right": "0%",
+        "left": "50%"
+      }
+    },
+    "vertical": {
+      "default": {
+        "position": "absolute",
+        "left": "24px",
+        "top": "48px",
+        "bottom": "0px",
+        "width": "3px",
+        "backgroundColor": "#DADCE0",
+        "zIndex": "1"
+      },
+      "active": {
+        "backgroundColor": "#4CAF50"
+      }
+    }
+  },
+  "icons": {
+    "check": {
+      "width": "24px",
+      "height": "24px",
+      "color": "#FFFFFF"
+    }
+  },
+  "steps": {
+    "registration": [
+      {
+        "number": "1",
+        "title": "Data Diri",
+        "description": "Lengkapi informasi personal",
+        "status": "completed"
+      },
+      {
+        "number": "2",
+        "title": "Upload Dokumen",
+        "description": "Upload dokumen persyaratan",
+        "status": "active"
+      },
+      {
+        "number": "3",
+        "title": "Konfirmasi",
+        "description": "Review dan konfirmasi data",
+        "status": "pending"
+      }
+    ],
+    "assessment": [
+      {
+        "number": "1",
+        "title": "Pendaftaran",
+        "description": "Daftar skema sertifikasi",
+        "status": "completed"
+      },
+      {
+        "number": "2",
+        "title": "Verifikasi",
+        "description": "Verifikasi dokumen oleh admin",
+        "status": "completed"
+      },
+      {
+        "number": "3",
+        "title": "Jadwal Asesmen",
+        "description": "Penjadwalan asesment",
+        "status": "active"
+      },
+      {
+        "number": "4",
+        "title": "Pelaksanaan",
+        "description": "Proses asesmen berlangsung",
+        "status": "pending"
+      },
+      {
+        "number": "5",
+        "title": "Hasil",
+        "description": "Pengumuman hasil asesmen",
+        "status": "pending"
+      }
+    ]
+  },
+  "responsive": {
+    "mobile": {
+      "horizontal": {
+        "padding": "16px 0px"
+      },
+      "step": {
+        "circle": {
+          "width": "36px",
+          "height": "36px",
+          "fontSize": "14px"
+        },
+        "label": {
+          "fontSize": "12px",
+          "maxWidth": "80px"
+        },
+        "description": {
+          "display": "none"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "componentName": "Schedule and Results Display",
+  "description": "Schedule status and assessment results components for participants",
+  "scheduleStatus": {
+    "componentName": "Schedule Status Cards",
+    "layout": {
+      "container": {
+        "display": "grid",
+        "gridTemplateColumns": "repeat(auto-fit, minmax(300px, 1fr))",
+        "gap": "24px",
+        "marginBottom": "32px"
+      }
+    },
+    "statusCards": [
+      {
+        "title": "Pendaftaran",
+        "status": "completed",
+        "date": "20 Nov 2024",
+        "icon": "how_to_reg",
+        "color": "#4CAF50",
+        "description": "Pendaftaran berhasil diajukan"
+      },
+      {
+        "title": "Verifikasi Dokumen",
+        "status": "in_progress",
+        "date": "Est. 23 Nov 2024",
+        "icon": "fact_check",
+        "color": "#FFC107",
+        "description": "Sedang diverifikasi oleh admin"
+      },
+      {
+        "title": "Penjadwalan Asesmen",
+        "status": "pending",
+        "date": "Pending",
+        "icon": "event",
+        "color": "#9E9E9E",
+        "description": "Menunggu konfirmasi jadwal"
+      },
+      {
+        "title": "Pelaksanaan Asesmen",
+        "status": "pending",
+        "date": "Pending",
+        "icon": "assignment_turned_in",
+        "color": "#9E9E9E",
+        "description": "Menunggu jadwal pelaksanaan"
+      },
+      {
+        "title": "Pengumuman Hasil",
+        "status": "pending",
+        "date": "Pending",
+        "icon": "emoji_events",
+        "color": "#9E9E9E",
+        "description": "Hasil akan diumumkan setelah asesmen"
+      }
+    ]
+  },
+  "upcomingSchedule": {
+    "componentName": "Upcoming Assessment Schedule",
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+    },
+    "header": {
+      "title": {
+        "text": "Jadwal Asesmen",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "subtitle": {
+        "text": "Berikut adalah jadwal asesmen Anda",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "marginBottom": "24px"
+      }
+    },
+    "scheduleCards": [
+      {
+        "scheme": "Junior Web Developer",
+        "code": "SK.WEB.001",
+        "date": "28 November 2024",
+        "time": "09:00 - 12:00 WIB",
+        "location": "LSP-SI Training Center, Jakarta",
+        "assessor": "Budi Santoso, S.Kom",
+        "room": "Lab Komputer 1",
+        "status": "confirmed",
+        "actions": ["view-details", "download-ticket"]
+      }
+    ],
+    "scheduleCardStructure": {
+      "header": {
+        "schemeTitle": {
+          "fontFamily": "Poppins",
+          "fontSize": "18px",
+          "fontWeight": "600",
+          "color": "#1A1A1A"
+        },
+        "schemeCode": {
+          "fontFamily": "Roboto",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "#0A3D62",
+          "backgroundColor": "#E8F0FE",
+          "padding": "4px 8px",
+          "borderRadius": "4px"
+        },
+        "statusBadge": {
+          "variant": "badge.success",
+          "text": "Dikonfirmasi"
+        }
+      },
+      "details": {
+        "section": {
+          "display": "grid",
+          "gridTemplateColumns": "1fr 1fr",
+          "gap": "16px",
+          "margin": "16px 0px"
+        },
+        "detailItem": {
+          "label": {
+            "fontFamily": "Roboto",
+            "fontSize": "12px",
+            "fontWeight": "500",
+            "color": "#5F6368",
+            "textTransform": "uppercase",
+            "letterSpacing": "0.5px"
+          },
+          "value": {
+            "fontFamily": "Roboto",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "color": "#202124"
+          }
+        }
+      },
+      "footer": {
+        "actions": {
+          "display": "flex",
+          "gap": "12px",
+          "marginTop": "16px",
+          "justifyContent": "flex-end"
+        }
+      }
+    }
+  },
+  "assessmentTimeline": {
+    "componentName": "Assessment Timeline",
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+      "marginTop": "32px"
+    },
+    "header": {
+      "title": {
+        "text": "Timeline Proses Asesmen",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "24px"
+      }
+    },
+    "timeline": {
+      "events": [
+        {
+          "date": "20 Nov 2024",
+          "time": "14:30",
+          "title": "Pendaftaran Diajukan",
+          "description": "Formulir APL.01 dan APL.02 berhasil diajukan",
+          "status": "completed",
+          "icon": "upload_file"
+        },
+        {
+          "date": "21 Nov 2024",
+          "time": "10:15",
+          "title": "Dokumen Diterima",
+          "description": "Semua dokumen persyaratan telah lengkap",
+          "status": "completed",
+          "icon": "check_circle"
+        },
+        {
+          "date": "22 Nov 2024",
+          "time": "09:00",
+          "title": "Verifikasi Dokumen",
+          "description": "Tim admin sedang memverifikasi dokumen Anda",
+          "status": "current",
+          "icon": "fact_check"
+        },
+        {
+          "date": "23 Nov 2024",
+          "time": "Est.",
+          "title": "Jadwal Asesmen",
+          "description": "Jadwal akan dikirim via email",
+          "status": "pending",
+          "icon": "event"
+        },
+        {
+          "date": "28 Nov 2024",
+          "time": "09:00",
+          "title": "Pelaksanaan Asesmen",
+          "description": "Asesmen kompetensi sesuai skema",
+          "status": "pending",
+          "icon": "assessment"
+        }
+      ]
+    }
+  },
+  "assessmentResults": {
+    "componentName": "Assessment Results",
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)"
+    },
+    "header": {
+      "title": {
+        "text": "Hasil Asesmen",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "subtitle": {
+        "text": "Hasil asesmen untuk skema Junior Web Developer",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "color": "#5F6368",
+        "marginBottom": "24px"
+      }
+    },
+    "resultSummary": {
+      "overallResult": {
+        "status": "kompeten",
+        "score": "85",
+        "grade": "B",
+        "date": "29 November 2024",
+        "assessor": "Budi Santoso, S.Kom"
+      },
+      "scoreBreakdown": {
+        "categories": [
+          {
+            "name": "Tes Tertulis",
+            "score": "80",
+            "weight": "30%",
+            "status": "passed"
+          },
+          {
+            "name": "Praktik Kerja",
+            "score": "88",
+            "weight": "50%",
+            "status": "passed"
+          },
+          {
+            "name": "Wawancara",
+            "score": "85",
+            "weight": "20%",
+            "status": "passed"
+          }
+        ]
+      }
+    },
+    "detailedResults": {
+      "table": {
+        "headers": [
+          "Unit Kompetensi",
+          "Kode",
+          "Status",
+          "Skor",
+          "Catatan Asesor"
+        ],
+        "rows": [
+          {
+            "unit": "Menganalisis kebutuhan perangkat lunak",
+            "code": "M.710001.001.1",
+            "status": "Kompeten",
+            "score": "85",
+            "notes": "Mahir dalam menganalisis requirement",
+            "statusColor": "#4CAF50"
+          },
+          {
+            "unit": "Merancang basis data",
+            "code": "M.710001.001.2",
+            "status": "Kompeten",
+            "score": "82",
+            "notes": "Database design well structured",
+            "statusColor": "#4CAF50"
+          },
+          {
+            "unit": "Membuat perangkat lunak berbasis web",
+            "code": "M.710001.001.3",
+            "status": "Kompeten",
+            "score": "88",
+            "notes": "Clean code dan best practices",
+            "statusColor": "#4CAF50"
+          },
+          {
+            "unit": "Melakukan testing perangkat lunak",
+            "code": "M.710001.001.4",
+            "status": "Kompeten",
+            "score": "80",
+            "notes": "Testing cukup komprehensif",
+            "statusColor": "#4CAF50"
+          },
+          {
+            "unit": "Melakukan deployment",
+            "code": "M.710001.001.5",
+            "status": "Kompeten",
+            "score": "86",
+            "notes": "Deployment process berhasil",
+            "statusColor": "#4CAF50"
+          }
+        ]
+      }
+    },
+    "certificateStatus": {
+      "title": "Status Sertifikat",
+      "status": "in_progress",
+      "estimatedDate": "5 Desember 2024",
+      "description": "Sertifikat sedang dalam proses pencetakan",
+      "actions": ["preview", "download-draft"]
+    },
+    "resultActions": {
+      "downloadReport": {
+        "text": "Download Lengkap Hasil",
+        "variant": "button.primary",
+        "icon": "download"
+      },
+      "shareResults": {
+        "text": "Bagikan Hasil",
+        "variant": "button.outline",
+        "icon": "share"
+      },
+      "printCertificate": {
+        "text": "Cetak Sertifikat",
+        "variant": "button.primary",
+        "icon": "print",
+        "visible": false
+      }
+    }
+  },
+  "certificatePreview": {
+    "componentName": "Certificate Preview",
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "32px",
+      "boxShadow": "0px 2px 8px rgba(0, 0, 0, 0.08)",
+      "textAlign": "center"
+    },
+    "certificateFrame": {
+      "border": "8px solid #0A3D62",
+      "borderRadius": "8px",
+      "padding": "40px",
+      "backgroundColor": "#FAFAFA",
+      "position": "relative",
+      "backgroundImage": "url('/certificate-bg.png')"
+    },
+    "certificateContent": {
+      "title": {
+        "text": "SERTIFIKAT KOMPETENSI",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "color": "#0A3D62",
+        "marginBottom": "24px"
+      },
+      "subtitle": {
+        "text": "Nomor: SK-123/2024/LSP-SI",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "color": "#5F6368",
+        "marginBottom": "32px"
+      },
+      "recipientName": {
+        "text": "John Doe",
+        "fontFamily": "Playfair Display",
+        "fontSize": "36px",
+        "fontWeight": "700",
+        "color": "#1A1A1A",
+        "margin": "32px 0px",
+        "borderBottom": "2px solid #0A3D62",
+        "paddingBottom": "8px",
+        "display": "inline-block"
+      },
+      "certificationText": {
+        "text": "Telah dinyatakan KOMPETEN pada Skema Sertifikasi",
+        "fontFamily": "Roboto",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "color": "#202124",
+        "lineHeight": "1.6",
+        "margin": "24px 0px"
+      },
+      "schemeTitle": {
+        "text": "JUNIOR WEB DEVELOPER",
+        "fontFamily": "Poppins",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "color": "#0A3D62",
+        "margin": "16px 0px"
+      },
+      "schemeCode": {
+        "text": "Kode: SK.WEB.001",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "color": "#5F6368"
+      },
+      "dateAndSignatures": {
+        "marginTop": "48px",
+        "signatures": [
+          {
+            "role": "Ketua LSP-SI",
+            "name": "Dr. Ahmad Wijaya, M.Kom",
+            "signature": "/signatures/ chairman.png"
+          },
+          {
+            "role": "Asesor Kompeten",
+            "name": "Budi Santoso, S.Kom",
+            "signature": "/signatures/ assessor.png"
+          }
+        ]
+      }
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "scheduleStatus": {
+        "gridTemplateColumns": "1fr"
+      },
+      "scheduleCards": {
+        "padding": "16px"
+      },
+      "assessmentResults": {
+        "resultSummary": {
+          "layout": "vertical"
+        },
+        "detailedResults": {
+          "tableView": "cards"
+        }
+      },
+      "certificatePreview": {
+        "certificateFrame": {
+          "padding": "20px"
+        },
+        "recipientName": {
+          "fontSize": "28px"
+        },
+        "title": {
+          "fontSize": "24px"
+        }
+      }
+    }
+  }
+}

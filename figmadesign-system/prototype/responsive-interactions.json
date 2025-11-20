@@ -1,0 +1,383 @@
+{
+  "componentName": "Responsive Interaction Patterns",
+  "description": "Comprehensive responsive design patterns and interactions for all viewports",
+  "breakpoints": {
+    "mobile": {
+      "range": "320px - 767px",
+      "touchOptimized": true,
+      "fontScale": 0.9,
+      "spacingScale": 0.8,
+      "interactions": "touch-first"
+    },
+    "tablet": {
+      "range": "768px - 1023px",
+      "touchOptimized": true,
+      "fontScale": 0.95,
+      "spacingScale": 0.9,
+      "interactions": "hybrid"
+    },
+    "desktop": {
+      "range": "1024px - 1439px",
+      "touchOptimized": false,
+      "fontScale": 1.0,
+      "spacingScale": 1.0,
+      "interactions": "pointer-first"
+    },
+    "large": {
+      "range": "1440px+",
+      "touchOptimized": false,
+      "fontScale": 1.1,
+      "spacingScale": 1.1,
+      "interactions": "pointer-first"
+    }
+  },
+  "navigationPatterns": {
+    "mobile": {
+      "primaryNav": {
+        "type": "hamburger-menu",
+        "position": "fixed",
+        "trigger": "hamburger-icon",
+        "animation": "slide-in-left",
+        "overlay": true,
+        "closeMethods": ["overlay-click", "close-button", "escape-key"]
+      },
+      "secondaryNav": {
+        "type": "bottom-tabs",
+        "position": "fixed-bottom",
+        "iconSize": "24px",
+        "labelSize": "12px",
+        "activeIndicator": "pill"
+      },
+      "breadcrumbs": {
+        "type": "horizontal-scroll",
+        "maxWidth": "80vw",
+        "showArrows": true
+      }
+    },
+    "tablet": {
+      "primaryNav": {
+        "type": "collapsible-sidebar",
+        "position": "fixed-left",
+        "trigger": "menu-toggle",
+        "animation": "slide-and-fade",
+        "persistent": true
+      },
+      "secondaryNav": {
+        "type": "top-tabs",
+        "position": "below-header",
+        "scrollable": true
+      }
+    },
+    "desktop": {
+      "primaryNav": {
+        "type": "persistent-sidebar",
+        "position": "fixed-left",
+        "width": "280px",
+        "collapsible": true,
+        "miniVariant": true
+      },
+      "secondaryNav": {
+        "type": "horizontal-tabs",
+        "position": "content-header",
+        "fullWidth": true
+      }
+    }
+  },
+  "layoutAdaptations": {
+    "grids": {
+      "mobile": {
+        "columns": 4,
+        "gap": "16px",
+        "containerPadding": "16px",
+        "autoFit": true
+      },
+      "tablet": {
+        "columns": 8,
+        "gap": "24px",
+        "containerPadding": "24px",
+        "autoFit": true
+      },
+      "desktop": {
+        "columns": 12,
+        "gap": "32px",
+        "containerPadding": "32px",
+        "autoFit": false
+      },
+      "large": {
+        "columns": 12,
+        "gap": "40px",
+        "containerPadding": "48px",
+        "maxWidth": "1440px",
+        "autoFit": false
+      }
+    },
+    "cards": {
+      "mobile": {
+        "fullWidth": true,
+        "padding": "16px",
+        "borderRadius": "8px",
+        "stackedContent": true
+      },
+      "tablet": {
+        "twoColumn": true,
+        "padding": "20px",
+        "borderRadius": "10px",
+        "flexibleHeight": true
+      },
+      "desktop": {
+        "autoColumns": true,
+        "padding": "24px",
+        "borderRadius": "12px",
+        "equalHeight": true
+      }
+    },
+    "tables": {
+      "mobile": {
+        "view": "cards",
+        "stacked": true,
+        "swipeActions": true,
+        "expandableRows": false
+      },
+      "tablet": {
+        "view": "responsive-table",
+        "horizontalScroll": true,
+        "keyColumns": "always-visible",
+        "expandableRows": true
+      },
+      "desktop": {
+        "view": "full-table",
+        "allColumns": true,
+        "sorting": true,
+        "filtering": true
+      }
+    }
+  },
+  "touchInteractions": {
+    "gestures": {
+      "swipe": {
+        "actions": ["navigate", "dismiss", "reveal-actions"],
+        "sensitivity": "medium",
+        "feedback": "haptic"
+      },
+      "tap": {
+        "actions": ["select", "activate", "expand"],
+        "feedback": "visual",
+        "delay": "50ms"
+      },
+      "longPress": {
+        "actions": ["context-menu", "select-mode"],
+        "duration": "500ms",
+        "feedback": "vibration"
+      },
+      "pinch": {
+        "actions": ["zoom", "scale"],
+        "minScale": 0.5,
+        "maxScale": 3.0
+      },
+      "drag": {
+        "actions": ["reorder", "move", "resize"],
+        "feedback": "visual"
+      }
+    },
+    "touchTargets": {
+      "minimumSize": "44px",
+      "recommendedSize": "48px",
+      "spacing": "8px",
+      "padding": "12px"
+    },
+    "feedback": {
+      "visual": ["highlight", "scale", "ripple"],
+      "haptic": ["light", "medium", "heavy"],
+      "audio": ["click", "success", "error"]
+    }
+  },
+  "componentAdaptations": {
+    "forms": {
+      "mobile": {
+        "layout": "single-column",
+        "fieldHeight": "48px",
+        "fontSize": "16px",
+        "spacing": "16px",
+        "stickySubmit": true,
+        "inputMode": "appropriate-keyboard"
+      },
+      "tablet": {
+        "layout": "two-column",
+        "fieldHeight": "44px",
+        "fontSize": "15px",
+        "spacing": "20px",
+        "stickySubmit": false
+      },
+      "desktop": {
+        "layout": "multi-column",
+        "fieldHeight": "40px",
+        "fontSize": "14px",
+        "spacing": "24px",
+        "stickySubmit": false
+      }
+    },
+    "modals": {
+      "mobile": {
+        "position": "bottom-sheet",
+        "fullWidth": true,
+        "maxHeight": "90vh",
+        "scrollable": true,
+        "dragToClose": true,
+        "backdrop": true
+      },
+      "tablet": {
+        "position": "center",
+        "width": "90vw",
+        "maxWidth": "600px",
+        "maxHeight": "80vh",
+        "backdrop": true
+      },
+      "desktop": {
+        "position": "center",
+        "width": "auto",
+        "maxWidth": "800px",
+        "maxHeight": "90vh",
+        "backdrop": true
+      }
+    },
+    "dropdowns": {
+      "mobile": {
+        "type": "bottom-sheet",
+        "searchable": true,
+        "multiSelect": true,
+        "searchPlaceholder": "Cari..."
+      },
+      "tablet": {
+        "type": "dropdown",
+        "searchable": true,
+        "multiSelect": true,
+        "position": "below-trigger"
+      },
+      "desktop": {
+        "type": "dropdown",
+        "searchable": true,
+        "multiSelect": true,
+        "keyboardNav": true
+      }
+    },
+    "calendars": {
+      "mobile": {
+        "view": "month",
+        "touchNavigation": true,
+        "eventTap": "show-details",
+        "swipeMonths": true
+      },
+      "tablet": {
+        "view": "month",
+        "touchNavigation": true,
+        "eventTap": "show-details",
+        "hoverEvents": true
+      },
+      "desktop": {
+        "view": "month",
+        "keyboardNavigation": true,
+        "eventHover": "preview",
+        "dragDrop": true
+      }
+    }
+  },
+  "animations": {
+    "duration": {
+      "mobile": "fast (200ms)",
+      "tablet": "normal (300ms)",
+      "desktop": "normal (300ms)"
+    },
+    "easing": {
+      "mobile": "ease-out",
+      "tablet": "ease-in-out",
+      "desktop": "ease-in-out"
+    },
+    "respectMotionPreference": true,
+    "essentialOnly": {
+      "navigation": true,
+      "feedback": true,
+      "stateChanges": true
+    },
+    "enhanced": {
+      "pageTransitions": true,
+      "hoverEffects": true,
+      "loadAnimations": true
+    }
+  },
+  "performanceOptimizations": {
+    "mobile": {
+      "lazyLoadImages": true,
+      "compressImages": true,
+      "minifyCSS": true,
+      "reduceAnimations": true,
+      "touchOptimized": true
+    },
+    "tablet": {
+      "lazyLoadImages": true,
+      "compressImages": true,
+      "minifyCSS": true,
+      "adaptiveQuality": true
+    },
+    "desktop": {
+      "lazyLoadImages": false,
+      "highQualityImages": true,
+      "fullAnimations": true,
+      "hardwareAcceleration": true
+    }
+  },
+  "accessibility": {
+    "touch": {
+      "minimumTouchSize": "44px",
+      "spacingBetween": "8px",
+      "gestureAlternatives": true
+    },
+    "keyboard": {
+      "tabNavigation": true,
+      "arrowNavigation": true,
+      "shortcuts": true
+    },
+    "screenReader": {
+      "semanticHTML": true,
+      "ariaLabels": true,
+      "liveRegions": true,
+      "skipLinks": true
+    },
+    "visual": {
+      "contrastRatio": "4.5:1 minimum",
+      "textScaling": "200%",
+      "colorBlindFriendly": true
+    }
+  },
+  "testingGuidelines": {
+    "devices": [
+      {
+        "type": "phone-small",
+        "size": "375x667",
+        "test": "touch-interactions, text-overflow, navigation"
+      },
+      {
+        "type": "phone-large",
+        "size": "414x896",
+        "test": "layout-adaptation, content-scaling"
+      },
+      {
+        "type": "tablet-small",
+        "size": "768x1024",
+        "test": "hybrid-interactions, split-views"
+      },
+      {
+        "type": "tablet-large",
+        "size": "1024x768",
+        "test": "landscape-orientation, keyboard-usage"
+      },
+      {
+        "type": "desktop",
+        "size": "1440x900",
+        "test": "full-features, keyboard-navigation"
+      }
+    ],
+    "orientations": ["portrait", "landscape"],
+    "pixelDensity": ["1x", "2x", "3x"],
+    "networkConditions": ["slow-3g", "4g", "wifi"]
+  }
+}

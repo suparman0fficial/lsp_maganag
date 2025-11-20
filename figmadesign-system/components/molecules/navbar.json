@@ -1,0 +1,174 @@
+{
+  "componentName": "Navigation Bar",
+  "description": "Main navigation component with logo, menu items, and user profile",
+  "variants": {
+    "default": {
+      "backgroundColor": "#FFFFFF",
+      "borderColor": "#DADCE0",
+      "borderWidth": "0px 0px 1px 0px",
+      "height": "72px",
+      "padding": "0px 32px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "position": "sticky",
+      "top": "0px"
+    },
+    "admin": {
+      "backgroundColor": "#FFFFFF",
+      "borderColor": "#DADCE0",
+      "borderWidth": "0px 0px 1px 0px",
+      "height": "72px",
+      "padding": "0px 32px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)"
+    },
+    "participant": {
+      "backgroundColor": "#0A3D62",
+      "borderColor": "transparent",
+      "height": "64px",
+      "padding": "0px 24px",
+      "boxShadow": "0px 2px 4px rgba(10, 61, 98, 0.2)"
+    }
+  },
+  "logo": {
+    "default": {
+      "width": "40px",
+      "height": "40px",
+      "marginRight": "16px",
+      "image": "logo-primary.svg"
+    },
+    "text": {
+      "fontFamily": "Poppins",
+      "fontSize": "24px",
+      "fontWeight": "600",
+      "color": "#0A3D62",
+      "marginRight": "40px"
+    },
+    "participant": {
+      "textColor": "#FFFFFF"
+    }
+  },
+  "menuItems": {
+    "desktop": {
+      "display": "flex",
+      "alignItems": "center",
+      "gap": "8px"
+    },
+    "item": {
+      "default": {
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "color": "#5F6368",
+        "padding": "12px 16px",
+        "borderRadius": "8px",
+        "textDecoration": "none",
+        "transition": "all 0.2s ease"
+      },
+      "hover": {
+        "backgroundColor": "#F5F6FA",
+        "color": "#0A3D62"
+      },
+      "active": {
+        "backgroundColor": "#E8F0FE",
+        "color": "#0A3D62",
+        "fontWeight": "600"
+      },
+      "participant": {
+        "defaultColor": "rgba(255, 255, 255, 0.8)",
+        "hoverColor": "#FFFFFF",
+        "activeColor": "#FFFFFF"
+      }
+    }
+  },
+  "mobileMenu": {
+    "toggle": {
+      "display": "none",
+      "backgroundColor": "transparent",
+      "borderColor": "transparent",
+      "padding": "8px",
+      "borderRadius": "8px",
+      "iconColor": "#0A3D62"
+    },
+    "participantToggle": {
+      "iconColor": "#FFFFFF"
+    }
+  },
+  "userProfile": {
+    "container": {
+      "display": "flex",
+      "alignItems": "center",
+      "gap": "12px",
+      "padding": "8px 16px",
+      "borderRadius": "8px",
+      "cursor": "pointer"
+    },
+    "avatar": {
+      "width": "40px",
+      "height": "40px",
+      "borderRadius": "50%",
+      "borderWidth": "2px",
+      "borderColor": "#DADCE0"
+    },
+    "userInfo": {
+      "name": {
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "color": "#202124",
+        "marginBottom": "2px"
+      },
+      "role": {
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      },
+      "participant": {
+        "nameColor": "#FFFFFF",
+        "roleColor": "rgba(255, 255, 255, 0.8)"
+      }
+    },
+    "dropdown": {
+      "trigger": {
+        "width": "20px",
+        "height": "20px",
+        "color": "#5F6368"
+      },
+      "menu": {
+        "position": "absolute",
+        "top": "64px",
+        "right": "32px",
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": "8px",
+        "borderWidth": "1px",
+        "borderColor": "#DADCE0",
+        "boxShadow": "0px 8px 16px rgba(0, 0, 0, 0.1)",
+        "minWidth": "200px",
+        "padding": "8px 0px",
+        "zIndex": "1000"
+      },
+      "menuItem": {
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "color": "#202124",
+        "padding": "12px 16px",
+        "textDecoration": "none",
+        "display": "block",
+        "hoverBackgroundColor": "#F5F6FA"
+      },
+      "divider": {
+        "height": "1px",
+        "backgroundColor": "#DADCE0",
+        "margin": "8px 0px"
+      }
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "maxWidth": "768px",
+      "menuItemsDisplay": "none",
+      "mobileMenuDisplay": "block",
+      "padding": "0px 16px"
+    }
+  }
+}

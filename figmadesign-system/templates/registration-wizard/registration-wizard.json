@@ -1,0 +1,333 @@
+{
+  "componentName": "Registration Wizard",
+  "description": "Multi-step registration wizard for certification enrollment",
+  "layout": {
+    "container": {
+      "maxWidth": "900px",
+      "margin": "0px auto",
+      "padding": "32px",
+      "minHeight": "calc(100vh - 200px)"
+    }
+  },
+  "header": {
+    "title": {
+      "text": "Pendaftaran Sertifikasi Profesional",
+      "fontFamily": "Poppins",
+      "fontSize": "32px",
+      "fontWeight": "600",
+      "color": "#1A1A1A",
+      "textAlign": "center",
+      "marginBottom": "16px"
+    },
+    "subtitle": {
+      "text": "Ikuti langkah-langkah berikut untuk mendaftar program sertifikasi",
+      "fontFamily": "Roboto",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "color": "#5F6368",
+      "textAlign": "center",
+      "marginBottom": "48px"
+    }
+  },
+  "stepper": {
+    "component": "progress-stepper",
+    "variant": "horizontal",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Data Diri",
+        "description": "Informasi personal",
+        "status": "completed"
+      },
+      {
+        "number": "2",
+        "title": "Upload Dokumen",
+        "description": "Dokumen persyaratan",
+        "status": "active"
+      },
+      {
+        "number": "3",
+        "title": "Konfirmasi",
+        "description": "Review data",
+        "status": "pending"
+      }
+    ]
+  },
+  "step1": {
+    "title": "Data Diri",
+    "description": "Lengkapi informasi personal Anda",
+    "sections": [
+      {
+        "title": "Informasi Pribadi",
+        "fields": [
+          {
+            "name": "fullName",
+            "label": "Nama Lengkap",
+            "type": "text",
+            "placeholder": "Masukkan nama lengkap sesuai KTP",
+            "required": true,
+            "validation": "min:3|max:100",
+            "icon": "person"
+          },
+          {
+            "name": "email",
+            "label": "Email",
+            "type": "email",
+            "placeholder": "email@example.com",
+            "required": true,
+            "validation": "email",
+            "icon": "email"
+          },
+          {
+            "name": "phone",
+            "label": "Nomor Telepon",
+            "type": "tel",
+            "placeholder": "+62 812-3456-7890",
+            "required": true,
+            "validation": "phone",
+            "icon": "phone"
+          },
+          {
+            "name": "placeOfBirth",
+            "label": "Tempat Lahir",
+            "type": "text",
+            "placeholder": "Kota/Kabupaten",
+            "required": true,
+            "validation": "required"
+          },
+          {
+            "name": "dateOfBirth",
+            "label": "Tanggal Lahir",
+            "type": "date",
+            "required": true,
+            "validation": "age:18"
+          }
+        ]
+      },
+      {
+        "title": "Informasi Tambahan",
+        "fields": [
+          {
+            "name": "gender",
+            "label": "Jenis Kelamin",
+            "type": "radio",
+            "options": [
+              {"value": "L", "label": "Laki-laki"},
+              {"value": "P", "label": "Perempuan"}
+            ],
+            "required": true
+          },
+          {
+            "name": "address",
+            "label": "Alamat Lengkap",
+            "type": "textarea",
+            "placeholder": "Masukkan alamat lengkap",
+            "required": true,
+            "rows": 3
+          },
+          {
+            "name": "education",
+            "label": "Pendidikan Terakhir",
+            "type": "select",
+            "options": [
+              {"value": "sma", "label": "SMA/SMK"},
+              {"value": "d3", "label": "D3"},
+              {"value": "s1", "label": "S1"},
+              {"value": "s2", "label": "S2"},
+              {"value": "s3", "label": "S3"}
+            ],
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  "step2": {
+    "title": "Upload Dokumen",
+    "description": "Upload dokumen persyaratan sertifikasi",
+    "sections": [
+      {
+        "title": "Dokumen Wajib",
+        "fields": [
+          {
+            "name": "photo",
+            "label": "Pas Foto Terbaru",
+            "description": "Format: JPG/PNG, Maks: 2MB, Ukuran: 4x6cm, Background warna biru",
+            "type": "file",
+            "accept": ".jpg,.jpeg,.png",
+            "maxSize": "2MB",
+            "required": true,
+            "preview": true,
+            "validation": "image"
+          },
+          {
+            "name": "ktp",
+            "label": "KTP",
+            "description": "Format: PDF/JPG, Maks: 3MB, Scan KTP yang masih berlaku",
+            "type": "file",
+            "accept": ".pdf,.jpg,.jpeg",
+            "maxSize": "3MB",
+            "required": true,
+            "validation": "required"
+          },
+          {
+            "name": "ijazah",
+            "label": "Ijazah Terakhir",
+            "description": "Format: PDF, Maks: 5MB, Scan ijazah yang dilegalisir",
+            "type": "file",
+            "accept": ".pdf",
+            "maxSize": "5MB",
+            "required": true,
+            "validation": "required"
+          }
+        ]
+      },
+      {
+        "title": "Dokumen Pendukung (Opsional)",
+        "fields": [
+          {
+            "name": "workExperience",
+            "label": "Surat Pengalaman Kerja",
+            "description": "Format: PDF, Maks: 5MB",
+            "type": "file",
+            "accept": ".pdf",
+            "maxSize": "5MB",
+            "required": false
+          },
+          {
+            "name": "certificates",
+            "label": "Sertifikat Keahlian",
+            "description": "Format: PDF, Maks: 10MB (Boleh upload beberapa file)",
+            "type": "file",
+            "accept": ".pdf",
+            "maxSize": "10MB",
+            "multiple": true,
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
+  "step3": {
+    "title": "Konfirmasi Pendaftaran",
+    "description": "Review data Anda dan konfirmasi pendaftaran",
+    "sections": [
+      {
+        "title": "Ringkasan Data Pribadi",
+        "type": "summary-display",
+        "fields": [
+          "fullName",
+          "email",
+          "phone",
+          "placeOfBirth",
+          "dateOfBirth",
+          "gender",
+          "address",
+          "education"
+        ]
+      },
+      {
+        "title": "Skema Sertifikasi",
+        "type": "scheme-selection",
+        "description": "Pilih skema sertifikasi yang diinginkan"
+      },
+      {
+        "title": "Dokumen yang Diupload",
+        "type": "file-summary",
+        "showFiles": true
+      },
+      {
+        "title": "Pernyataan",
+        "type": "agreement",
+        "checkboxes": [
+          {
+            "name": "agreement1",
+            "label": "Saya menyatakan bahwa data yang saya berikan adalah benar dan dapat dipertanggungjawabkan",
+            "required": true
+          },
+          {
+            "name": "agreement2",
+            "label": "Saya menyetujui syarat dan ketentuan yang berlaku",
+            "required": true
+          },
+          {
+            "name": "agreement3",
+            "label": "Saya bersedia mengikuti proses asesmen sesuai jadwal yang ditentukan",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  "actions": {
+    "previous": {
+      "text": "Kembali",
+      "variant": "button.outline",
+      "action": "previousStep"
+    },
+    "next": {
+      "text": "Lanjut",
+      "variant": "button.primary",
+      "action": "nextStep",
+      "validation": "validateCurrentStep"
+    },
+    "submit": {
+      "text": "Daftar Sekarang",
+      "variant": "button.primary",
+      "action": "submitRegistration",
+      "validation": "validateAllSteps"
+    }
+  },
+  "validation": {
+    "step1": {
+      "requiredFields": ["fullName", "email", "phone", "placeOfBirth", "dateOfBirth", "gender", "address", "education"],
+      "customValidation": {
+        "email": "validateEmail",
+        "phone": "validatePhone",
+        "dateOfBirth": "validateAge"
+      }
+    },
+    "step2": {
+      "requiredFields": ["photo", "ktp", "ijazah"],
+      "customValidation": {
+        "photo": "validateImage",
+        "ktp": "validateFileSize",
+        "ijazah": "validateFileSize"
+      }
+    },
+    "step3": {
+      "requiredFields": ["scheme", "agreement1", "agreement2", "agreement3"],
+      "customValidation": {
+        "agreement": "validateAgreement"
+      }
+    }
+  },
+  "progress": {
+    "showProgress": true,
+    "showSteps": true,
+    "allowSkip": false,
+    "allowReturn": true
+  },
+  "responsive": {
+    "mobile": {
+      "container": {
+        "padding": "16px"
+      },
+      "header": {
+        "title": {
+          "fontSize": "24px"
+        },
+        "subtitle": {
+          "fontSize": "16px"
+        }
+      },
+      "stepper": {
+        "variant": "compact"
+      },
+      "actions": {
+        "layout": "vertical",
+        "gap": "12px"
+      }
+    }
+  }
+}

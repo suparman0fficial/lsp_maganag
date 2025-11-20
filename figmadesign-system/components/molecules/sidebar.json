@@ -1,0 +1,223 @@
+{
+  "componentName": "Sidebar",
+  "description": "Sidebar navigation with menu items and user info",
+  "variants": {
+    "participant": {
+      "default": {
+        "backgroundColor": "#0A3D62",
+        "width": "250px",
+        "minHeight": "100vh",
+        "position": "fixed",
+        "left": "0px",
+        "top": "0px",
+        "zIndex": "100",
+        "boxShadow": "4px 0px 12px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    "admin": {
+      "default": {
+        "backgroundColor": "#FFFFFF",
+        "width": "280px",
+        "minHeight": "100vh",
+        "position": "fixed",
+        "left": "0px",
+        "top": "72px",
+        "borderWidth": "0px 1px 0px 0px",
+        "borderColor": "#DADCE0",
+        "boxShadow": "none"
+      }
+    }
+  },
+  "header": {
+    "logoSection": {
+      "padding": "32px 24px",
+      "borderBottom": "1px solid rgba(255, 255, 255, 0.1)",
+      "textAlign": "center"
+    },
+    "logo": {
+      "width": "60px",
+      "height": "60px",
+      "marginBottom": "12px"
+    },
+    "title": {
+      "fontFamily": "Poppins",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "color": "#FFFFFF",
+      "margin": "0px"
+    },
+    "subtitle": {
+      "fontFamily": "Roboto",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "color": "rgba(255, 255, 255, 0.7)",
+      "margin": "4px 0px 0px 0px"
+    }
+  },
+  "menu": {
+    "container": {
+      "padding": "24px 0px"
+    },
+    "sectionTitle": {
+      "fontFamily": "Roboto",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "textTransform": "uppercase",
+      "letterSpacing": "0.5px",
+      "padding": "16px 24px 8px 24px",
+      "color": "rgba(255, 255, 255, 0.6)"
+    },
+    "menuItem": {
+      "default": {
+        "display": "flex",
+        "alignItems": "center",
+        "padding": "14px 24px",
+        "color": "rgba(255, 255, 255, 0.8)",
+        "textDecoration": "none",
+        "transition": "all 0.2s ease",
+        "borderLeft": "3px solid transparent",
+        "margin": "2px 0px"
+      },
+      "hover": {
+        "backgroundColor": "rgba(255, 255, 255, 0.1)",
+        "color": "#FFFFFF"
+      },
+      "active": {
+        "backgroundColor": "rgba(255, 255, 255, 0.15)",
+        "color": "#FFFFFF",
+        "borderLeftColor": "#FFFFFF"
+      },
+      "icon": {
+        "width": "20px",
+        "height": "20px",
+        "marginRight": "12px"
+      },
+      "text": {
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "flex": "1"
+      },
+      "badge": {
+        "marginLeft": "8px",
+        "backgroundColor": "#4CAF50",
+        "color": "#FFFFFF",
+        "fontFamily": "Roboto",
+        "fontSize": "10px",
+        "fontWeight": "600",
+        "padding": "2px 6px",
+        "borderRadius": "10px"
+      }
+    },
+    "adminMenuItem": {
+      "default": {
+        "display": "flex",
+        "alignItems": "center",
+        "padding": "12px 20px",
+        "color": "#5F6368",
+        "textDecoration": "none",
+        "transition": "all 0.2s ease",
+        "borderLeft": "3px solid transparent",
+        "margin": "1px 0px"
+      },
+      "hover": {
+        "backgroundColor": "#F5F6FA",
+        "color": "#0A3D62"
+      },
+      "active": {
+        "backgroundColor": "#E8F0FE",
+        "color": "#0A3D62",
+        "borderLeftColor": "#0A3D62"
+      },
+      "sectionTitle": {
+        "fontFamily": "Roboto",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "textTransform": "uppercase",
+        "letterSpacing": "0.5px",
+        "padding": "16px 20px 8px 20px",
+        "color": "#9AA0A6"
+      }
+    }
+  },
+  "userSection": {
+    "container": {
+      "position": "absolute",
+      "bottom": "0px",
+      "left": "0px",
+      "right": "0px",
+      "padding": "20px",
+      "borderTop": "1px solid rgba(255, 255, 255, 0.1)"
+    },
+    "userInfo": {
+      "display": "flex",
+      "alignItems": "center",
+      "marginBottom": "12px"
+    },
+    "avatar": {
+      "width": "36px",
+      "height": "36px",
+      "borderRadius": "50%",
+      "borderWidth": "2px",
+      "borderColor": "rgba(255, 255, 255, 0.3)",
+      "marginRight": "12px"
+    },
+    "details": {
+      "flex": "1"
+    },
+    "name": {
+      "fontFamily": "Roboto",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "color": "#FFFFFF",
+      "margin": "0px 0px 2px 0px"
+    },
+    "role": {
+      "fontFamily": "Roboto",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "color": "rgba(255, 255, 255, 0.7)",
+      "margin": "0px"
+    },
+    "logout": {
+      "fontFamily": "Roboto",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "color": "rgba(255, 255, 255, 0.8)",
+      "textDecoration": "none",
+      "padding": "8px 12px",
+      "borderRadius": "6px",
+      "transition": "all 0.2s ease",
+      "display": "flex",
+      "alignItems": "center",
+      "gap": "8px"
+    },
+    "logoutHover": {
+      "backgroundColor": "rgba(255, 255, 255, 0.1)",
+      "color": "#FFFFFF"
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "maxWidth": "768px",
+      "transform": "translateX(-100%)",
+      "transition": "transform 0.3s ease"
+    },
+    "mobileOpen": {
+      "transform": "translateX(0%)"
+    },
+    "overlay": {
+      "display": "none",
+      "position": "fixed",
+      "top": "0px",
+      "left": "0px",
+      "right": "0px",
+      "bottom": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0.5)",
+      "zIndex": "99"
+    },
+    "mobileOverlayOpen": {
+      "display": "block"
+    }
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "componentName": "Admin Dashboard Layout",
+  "description": "Complete admin dashboard layout with hierarchical navigation",
+  "layout": {
+    "container": {
+      "display": "flex",
+      "minHeight": "100vh",
+      "backgroundColor": "#F5F6FA"
+    },
+    "topbar": {
+      "component": "navbar.admin",
+      "height": "72px",
+      "position": "fixed",
+      "top": "0px",
+      "left": "0px",
+      "right": "0px",
+      "zIndex": "100",
+      "backgroundColor": "#FFFFFF",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)"
+    },
+    "sidebar": {
+      "component": "sidebar.admin",
+      "width": "280px",
+      "position": "fixed",
+      "left": "0px",
+      "top": "72px",
+      "height": "calc(100vh - 72px)",
+      "zIndex": "99",
+      "backgroundColor": "#FFFFFF",
+      "borderRight": "1px solid #DADCE0"
+    },
+    "contentArea": {
+      "marginLeft": "280px",
+      "marginTop": "72px",
+      "flex": "1",
+      "minHeight": "calc(100vh - 72px)"
+    }
+  },
+  "topbar": {
+    "logoSection": {
+      "logo": {
+        "width": "40px",
+        "height": "40px",
+        "marginRight": "12px"
+      },
+      "logoText": {
+        "text": "LSP-SI Admin",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#0A3D62"
+      }
+    },
+    "searchSection": {
+      "searchBar": {
+        "width": "400px",
+        "placeholder": "Cari peserta, asesor, atau skema...",
+        "icon": "search"
+      }
+    },
+    "userSection": {
+      "notifications": {
+        "icon": "notifications",
+        "badge": "3",
+        "count": 3
+      },
+      "userMenu": {
+        "avatar": {
+          "width": "40px",
+          "height": "40px",
+          "borderRadius": "50%",
+          "borderWidth": "2px",
+          "borderColor": "#DADCE0"
+        },
+        "userInfo": {
+          "name": "Admin User",
+          "role": "Super Admin"
+        },
+        "dropdown": {
+          "items": [
+            { "label": "Profil", "icon": "person", "href": "/admin/profile" },
+            { "label": "Pengaturan", "icon": "settings", "href": "/admin/settings" },
+            { "divider": true },
+            { "label": "Keluar", "icon": "logout", "action": "logout" }
+          ]
+        }
+      }
+    }
+  },
+  "sidebar": {
+    "menuSections": [
+      {
+        "title": "Main Menu",
+        "items": [
+          {
+            "id": "dashboard",
+            "label": "Dashboard",
+            "icon": "dashboard",
+            "href": "/admin",
+            "active": true
+          },
+          {
+            "id": "participants",
+            "label": "Data Peserta",
+            "icon": "groups",
+            "href": "/admin/participants",
+            "badge": "12"
+          },
+          {
+            "id": "scheduling",
+            "label": "Penjadwalan",
+            "icon": "calendar_today",
+            "href": "/admin/scheduling"
+          }
+        ]
+      },
+      {
+        "title": "Master Data",
+        "items": [
+          {
+            "id": "assessors",
+            "label": "Data Asesor",
+            "icon": "person_search",
+            "href": "/admin/assessors"
+          },
+          {
+            "id": "schemes",
+            "label": "Skema Sertifikasi",
+            "icon": "verified",
+            "href": "/admin/schemes"
+          },
+          {
+            "id": "tuk",
+            "label": "Tempat Uji Kompetensi",
+            "icon": "location_on",
+            "href": "/admin/tuk"
+          }
+        ]
+      },
+      {
+        "title": "Assessment",
+        "items": [
+          {
+            "id": "results",
+            "label": "Hasil Asesmen",
+            "icon": "assessment",
+            "href": "/admin/results"
+          },
+          {
+            "id": "certificates",
+            "label": "Sertifikat",
+            "icon": "workspace_premium",
+            "href": "/admin/certificates"
+          },
+          {
+            "id": "reports",
+            "label": "Laporan",
+            "icon": "bar_chart",
+            "href": "/admin/reports"
+          }
+        ]
+      }
+    ]
+  },
+  "contentArea": {
+    "pageHeader": {
+      "breadcrumb": {
+        "items": [
+          { "label": "Admin", "href": "/admin" },
+          { "label": "Dashboard", "active": true }
+        ]
+      },
+      "pageTitle": {
+        "text": "Dashboard Admin",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "color": "#1A1A1A"
+      },
+      "pageActions": [
+        {
+          "text": "Export Data",
+          "variant": "button.outline",
+          "icon": "download"
+        },
+        {
+          "text": "Tambah Peserta",
+          "variant": "button.primary",
+          "icon": "add"
+        }
+      ]
+    },
+    "contentGrid": {
+      "layout": "grid",
+      "gridTemplateColumns": "repeat(12, 1fr)",
+      "gap": "32px",
+      "padding": "32px"
+    }
+  },
+  "dashboardComponents": {
+    "statsOverview": {
+      "gridSpan": "span 12",
+      "component": "stats-cards",
+      "layout": {
+        "display": "grid",
+        "gridTemplateColumns": "repeat(auto-fit, minmax(250px, 1fr))",
+        "gap": "24px"
+      },
+      "cards": [
+        {
+          "title": "Total Peserta",
+          "value": "1,234",
+          "change": "+12.5%",
+          "changeType": "positive",
+          "icon": "groups",
+          "color": "#4285F4"
+        },
+        {
+          "title": "Jadwal Aktif",
+          "value": "8",
+          "change": "+2",
+          "changeType": "positive",
+          "icon": "event",
+          "color": "#34A853"
+        },
+        {
+          "title": "Asesor Tersedia",
+          "value": "24",
+          "change": "+3",
+          "changeType": "positive",
+          "icon": "person_search",
+          "color": "#FBBC04"
+        },
+        {
+          "title": "Hasil Bulan Ini",
+          "value": "89%",
+          "change": "+5.2%",
+          "changeType": "positive",
+          "icon": "trending_up",
+          "color": "#EA4335"
+        }
+      ]
+    },
+    "chartSection": {
+      "gridSpan": "span 8",
+      "component": "assessment-chart",
+      "title": "Statistik Asesmen",
+      "charts": [
+        {
+          "type": "line",
+          "title": "Trend Pendaftaran",
+          "data": [
+            { "month": "Jan", "value": 120 },
+            { "month": "Feb", "value": 150 },
+            { "month": "Mar", "value": 180 },
+            { "month": "Apr", "value": 165 },
+            { "month": "May", "value": 200 },
+            { "month": "Jun", "value": 220 }
+          ]
+        },
+        {
+          "type": "bar",
+          "title": "Hasil Asesmen per Skema",
+          "data": [
+            { "scheme": "Web Dev", "kompeten": 45, "belum": 5 },
+            { "scheme": "Mobile Dev", "kompeten": 38, "belum": 7 },
+            { "scheme": "Backend Dev", "kompeten": 32, "belum": 8 }
+          ]
+        }
+      ]
+    },
+    "recentActivity": {
+      "gridSpan": "span 4",
+      "component": "recent-activity",
+      "title": "Aktivitas Terbaru",
+      "activities": [
+        {
+          "type": "registration",
+          "user": "John Doe",
+          "action": "Mendaftar skema Junior Web Developer",
+          "time": "5 menit yang lalu",
+          "icon": "person_add",
+          "color": "#4CAF50"
+        },
+        {
+          "type": "document",
+          "user": "Admin",
+          "action": "Memverifikasi dokumen Jane Smith",
+          "time": "1 jam yang lalu",
+          "icon": "fact_check",
+          "color": "#2196F3"
+        },
+        {
+          "type": "schedule",
+          "user": "Admin",
+          "action": "Menjadwalkan asesmen untuk 5 peserta",
+          "time": "2 jam yang lalu",
+          "icon": "event",
+          "color": "#FFC107"
+        },
+        {
+          "type": "result",
+          "user": "Asesor",
+          "action": "Menginput hasil asesmen",
+          "time": "3 jam yang lalu",
+          "icon": "assessment",
+          "color": "#9C27B0"
+        }
+      ]
+    },
+    "upcomingAssessments": {
+      "gridSpan": "span 12",
+      "component": "upcoming-assessments",
+      "title": "Jadwal Asesmen Mendatang",
+      "table": {
+        "headers": [
+          "Tanggal",
+          "Skema",
+          "Peserta",
+          "Asesor",
+          "Lokasi",
+          "Status",
+          "Aksi"
+        ],
+        "rows": [
+          {
+            "date": "28 Nov 2024",
+            "scheme": "Junior Web Developer",
+            "participants": 12,
+            "assessor": "Budi Santoso",
+            "location": "Lab Komputer 1",
+            "status": "scheduled",
+            "actions": ["view", "edit", "cancel"]
+          },
+          {
+            "date": "30 Nov 2024",
+            "scheme": "Mobile Developer",
+            "participants": 8,
+            "assessor": "Ahmad Wijaya",
+            "location": "Lab Mobile",
+            "status": "scheduled",
+            "actions": ["view", "edit", "cancel"]
+          }
+        ]
+      }
+    }
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard",
+      "components": [
+        "statsOverview",
+        "chartSection",
+        "recentActivity",
+        "upcomingAssessments"
+      ]
+    },
+    "participants": {
+      "title": "Data Peserta",
+      "components": [
+        "participants-header",
+        "participants-table",
+        "participants-actions"
+      ]
+    },
+    "scheduling": {
+      "title": "Penjadwalan",
+      "components": [
+        "scheduling-header",
+        "calendar-view",
+        "schedule-modal"
+      ]
+    },
+    "assessors": {
+      "title": "Data Asesor",
+      "components": [
+        "assessors-header",
+        "assessors-table",
+        "assessor-form"
+      ]
+    },
+    "results": {
+      "title": "Hasil Asesmen",
+      "components": [
+        "results-header",
+        "results-table",
+        "certificate-generation"
+      ]
+    }
+  },
+  "responsive": {
+    "mobile": {
+      "topbar": {
+        "height": "64px",
+        "searchBar": {
+          "width": "200px"
+        }
+      },
+      "sidebar": {
+        "transform": "translateX(-100%)",
+        "transition": "transform 0.3s ease"
+      },
+      "contentArea": {
+        "marginLeft": "0px",
+        "marginTop": "64px",
+        "padding": "16px"
+      },
+      "contentGrid": {
+        "gridTemplateColumns": "1fr",
+        "gap": "24px"
+      },
+      "statsOverview": {
+        "cards": {
+          "gridTemplateColumns": "repeat(2, 1fr)"
+        }
+      },
+      "pageTitle": {
+        "fontSize": "24px"
+      }
+    },
+    "tablet": {
+      "sidebar": {
+        "width": "260px"
+      },
+      "contentArea": {
+        "marginLeft": "260px",
+        "padding": "24px"
+      },
+      "contentGrid": {
+        "gridTemplateColumns": "repeat(8, 1fr)"
+      },
+      "chartSection": {
+        "gridSpan": "span 8"
+      },
+      "recentActivity": {
+        "gridSpan": "span 8"
+      }
+    }
+  },
+  "mobileNavigation": {
+    "overlay": {
+      "display": "none",
+      "position": "fixed",
+      "top": "0px",
+      "left": "0px",
+      "right": "0px",
+      "bottom": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0.5)",
+      "zIndex": "98"
+    },
+    "menuButton": {
+      "width": "40px",
+      "height": "40px",
+      "backgroundColor": "transparent",
+      "borderColor": "transparent",
+      "borderRadius": "8px"
+    }
+  }
+}

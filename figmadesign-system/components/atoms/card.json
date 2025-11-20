@@ -1,0 +1,102 @@
+{
+  "componentName": "Card",
+  "description": "Container card with elevation and padding variants",
+  "variants": {
+    "default": {
+      "default": {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#DADCE0",
+        "borderRadius": "12px",
+        "borderWidth": "1px",
+        "padding": "24px",
+        "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)"
+      },
+      "hover": {
+        "boxShadow": "0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06)"
+      }
+    },
+    "elevated": {
+      "default": {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "transparent",
+        "borderRadius": "12px",
+        "borderWidth": "0px",
+        "padding": "24px",
+        "boxShadow": "0px 4px 8px rgba(0, 0, 0, 0.08), 0px 4px 16px rgba(0, 0, 0, 0.14)"
+      },
+      "hover": {
+        "boxShadow": "0px 8px 16px rgba(0, 0, 0, 0.1), 0px 8px 32px rgba(0, 0, 0, 0.16)"
+      }
+    },
+    "outlined": {
+      "default": {
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#DADCE0",
+        "borderRadius": "8px",
+        "borderWidth": "2px",
+        "padding": "24px",
+        "boxShadow": "none"
+      },
+      "hover": {
+        "borderColor": "#80868B",
+        "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    "glass": {
+      "default": {
+        "backgroundColor": "rgba(255, 255, 255, 0.8)",
+        "borderColor": "rgba(255, 255, 255, 0.3)",
+        "borderRadius": "12px",
+        "borderWidth": "1px",
+        "padding": "24px",
+        "backdropBlur": "10px",
+        "boxShadow": "0px 8px 32px rgba(0, 0, 0, 0.1)"
+      }
+    }
+  },
+  "padding": {
+    "compact": {
+      "padding": "16px"
+    },
+    "default": {
+      "padding": "24px"
+    },
+    "spacious": {
+      "padding": "32px"
+    }
+  },
+  "header": {
+    "default": {
+      "marginBottom": "16px"
+    },
+    "title": {
+      "fontFamily": "Poppins",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "#1A1A1A",
+      "marginBottom": "4px"
+    },
+    "subtitle": {
+      "fontFamily": "Roboto",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "color": "#5F6368"
+    }
+  },
+  "content": {
+    "default": {
+      "fontFamily": "Roboto",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "color": "#202124",
+      "lineHeight": "1.6"
+    }
+  },
+  "footer": {
+    "default": {
+      "marginTop": "24px",
+      "paddingTop": "16px",
+      "borderTop": "1px solid #F5F6FA"
+    }
+  }
+}

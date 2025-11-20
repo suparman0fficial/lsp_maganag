@@ -1,0 +1,507 @@
+{
+  "componentName": "Participant Management",
+  "description": "Comprehensive participant data management interface",
+  "layout": {
+    "container": {
+      "maxWidth": "1400px",
+      "margin": "0px auto",
+      "padding": "32px"
+    }
+  },
+  "header": {
+    "titleSection": {
+      "title": {
+        "text": "Data Peserta",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "subtitle": {
+        "text": "Kelola data peserta dan verifikasi dokumen",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "actionsSection": {
+      "buttons": [
+        {
+          "text": "Import Excel",
+          "variant": "button.outline",
+          "icon": "upload_file",
+          "action": "importExcel"
+        },
+        {
+          "text": "Export Data",
+          "variant": "button.outline",
+          "icon": "download",
+          "action": "exportData"
+        },
+        {
+          "text": "Tambah Peserta",
+          "variant": "button.primary",
+          "icon": "add",
+          "action": "addParticipant"
+        }
+      ]
+    }
+  },
+  "filtersAndSearch": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "24px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "marginBottom": "24px"
+    },
+    "searchSection": {
+      "searchBar": {
+        "width": "100%",
+        "maxWidth": "400px",
+        "placeholder": "Cari berdasarkan nama, email, atau nomor registrasi...",
+        "icon": "search"
+      }
+    },
+    "filtersSection": {
+      "title": {
+        "text": "Filter",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "color": "#3C4043",
+        "marginBottom": "16px"
+      },
+      "filters": [
+        {
+          "name": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Semua Status" },
+            { "value": "pending", "label": "Menunggu Verifikasi" },
+            { "value": "verified", "label": "Terverifikasi" },
+            { "value": "scheduled", "label": "Dijadwalkan" },
+            { "value": "completed", "label": "Selesai" },
+            { "value": "rejected", "label": "Ditolak" }
+          ]
+        },
+        {
+          "name": "scheme",
+          "label": "Skema Sertifikasi",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Semua Skema" },
+            { "value": "web", "label": "Junior Web Developer" },
+            { "value": "mobile", "label": "Mobile Developer" },
+            { "value": "backend", "label": "Junior Backend Developer" }
+          ]
+        },
+        {
+          "name": "registrationDate",
+          "label": "Tanggal Pendaftaran",
+          "type": "date-range",
+          "start": "startDate",
+          "end": "endDate"
+        },
+        {
+          "name": "documentStatus",
+          "label": "Status Dokumen",
+          "type": "checkbox-group",
+          "options": [
+            { "value": "apl01_complete", "label": "APL.01 Lengkap" },
+            { "value": "apl02_complete", "label": "APL.02 Lengkap" },
+            { "value": "evidence_complete", "label": "Bukti Pendukung Lengkap" }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "text": "Terapkan Filter",
+          "variant": "button.primary",
+          "action": "applyFilters"
+        },
+        {
+          "text": "Reset",
+          "variant": "button.ghost",
+          "action": "resetFilters"
+        }
+      ]
+    }
+  },
+  "participantsTable": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "overflow": "hidden"
+    },
+    "tableHeader": {
+      "title": {
+        "text": "Daftar Peserta",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "margin": "0px 0px 16px 0px"
+      },
+      "count": {
+        "text": "Menampilkan 1-10 dari 123 peserta",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "table": {
+      "headers": [
+        {
+          "key": "checkbox",
+          "label": "",
+          "sortable": false,
+          "width": "5%"
+        },
+        {
+          "key": "participant",
+          "label": "Peserta",
+          "sortable": true,
+          "width": "25%"
+        },
+        {
+          "key": "registration",
+          "label": "Registrasi",
+          "sortable": true,
+          "width": "10%"
+        },
+        {
+          "key": "scheme",
+          "label": "Skema",
+          "sortable": true,
+          "width": "15%"
+        },
+        {
+          "key": "documents",
+          "label": "Dokumen",
+          "sortable": false,
+          "width": "15%"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "sortable": true,
+          "width": "10%"
+        },
+        {
+          "key": "date",
+          "label": "Tanggal",
+          "sortable": true,
+          "width": "10%"
+        },
+        {
+          "key": "actions",
+          "label": "Aksi",
+          "sortable": false,
+          "width": "10%"
+        }
+      ],
+      "rows": [
+        {
+          "id": "1",
+          "checkbox": { "checked": false },
+          "participant": {
+            "avatar": "/avatars/john-doe.jpg",
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "phone": "+62 812-3456-7890"
+          },
+          "registration": {
+            "number": "REG-2024-001234"
+          },
+          "scheme": {
+            "name": "Junior Web Developer",
+            "code": "SK.WEB.001"
+          },
+          "documents": {
+            "apl01": { "status": "verified", "label": "APL.01" },
+            "apl02": { "status": "pending", "label": "APL.02" }
+          },
+          "status": {
+            "value": "pending",
+            "label": "Menunggu Verifikasi",
+            "color": "#FFC107"
+          },
+          "date": {
+            "registration": "20 Nov 2024",
+            "lastUpdate": "22 Nov 2024"
+          },
+          "actions": [
+            { "type": "view", "icon": "visibility", "label": "Lihat" },
+            { "type": "verify", "icon": "fact_check", "label": "Verifikasi" },
+            { "type": "edit", "icon": "edit", "label": "Edit" },
+            { "type": "schedule", "icon": "calendar_today", "label": "Jadwalkan" }
+          ]
+        },
+        {
+          "id": "2",
+          "checkbox": { "checked": false },
+          "participant": {
+            "avatar": "/avatars/jane-smith.jpg",
+            "name": "Jane Smith",
+            "email": "jane.smith@example.com",
+            "phone": "+62 813-9876-5432"
+          },
+          "registration": {
+            "number": "REG-2024-001235"
+          },
+          "scheme": {
+            "name": "Mobile Developer",
+            "code": "SK.MOB.001"
+          },
+          "documents": {
+            "apl01": { "status": "verified", "label": "APL.01" },
+            "apl02": { "status": "verified", "label": "APL.02" }
+          },
+          "status": {
+            "value": "verified",
+            "label": "Terverifikasi",
+            "color": "#4CAF50"
+          },
+          "date": {
+            "registration": "18 Nov 2024",
+            "lastUpdate": "21 Nov 2024"
+          },
+          "actions": [
+            { "type": "view", "icon": "visibility", "label": "Lihat" },
+            { "type": "schedule", "icon": "calendar_today", "label": "Jadwalkan" },
+            { "type": "message", "icon": "message", "label": "Kirim Pesan" }
+          ]
+        }
+      ]
+    }
+  },
+  "documentStatusIndicators": {
+    "apl01": {
+      "verified": {
+        "label": "APL.01",
+        "badge": "success",
+        "icon": "check_circle"
+      },
+      "pending": {
+        "label": "APL.01",
+        "badge": "warning",
+        "icon": "pending"
+      },
+      "missing": {
+        "label": "APL.01",
+        "badge": "error",
+        "icon": "error"
+      }
+    },
+    "apl02": {
+      "verified": {
+        "label": "APL.02",
+        "badge": "success",
+        "icon": "check_circle"
+      },
+      "pending": {
+        "label": "APL.02",
+        "badge": "warning",
+        "icon": "pending"
+      },
+      "missing": {
+        "label": "APL.02",
+        "badge": "error",
+        "icon": "error"
+      }
+    }
+  },
+  "tableActions": {
+    "bulkActions": {
+      "container": {
+        "display": "flex",
+        "alignItems": "center",
+        "gap": "16px",
+        "padding": "16px 24px",
+        "borderTop": "1px solid #E8EAED"
+      },
+      "selectedCount": {
+        "text": "{count} peserta dipilih",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "color": "#202124"
+      },
+      "actions": [
+        {
+          "text": "Verifikasi Massal",
+          "variant": "button.primary",
+          "icon": "fact_check",
+          "action": "bulkVerify",
+          "enabled": false
+        },
+        {
+          "text": "Jadwalkan Massal",
+          "variant": "button.outline",
+          "icon": "calendar_today",
+          "action": "bulkSchedule",
+          "enabled": false
+        },
+        {
+          "text": "Hapus",
+          "variant": "button.ghost",
+          "icon": "delete",
+          "action": "bulkDelete",
+          "enabled": false
+        }
+      ]
+    },
+    "pagination": {
+      "container": {
+        "display": "flex",
+        "justifyContent": "space-between",
+        "alignItems": "center",
+        "padding": "16px 24px",
+        "borderTop": "1px solid #E8EAED"
+      },
+      "info": {
+        "text": "Menampilkan 1-10 dari 123 peserta",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "color": "#5F6368"
+      },
+      "controls": {
+        "itemsPerPage": {
+          "options": [10, 25, 50, 100],
+          "selected": 10
+        },
+        "pageButtons": {
+          "previous": { "enabled": false },
+          "next": { "enabled": true },
+          "pages": [1, 2, 3, "...", 13]
+        }
+      }
+    }
+  },
+  "verificationModal": {
+    "componentName": "Document Verification Modal",
+    "container": {
+      "maxWidth": "800px",
+      "maxHeight": "90vh",
+      "overflow": "auto"
+    },
+    "header": {
+      "title": "Verifikasi Dokumen Peserta",
+      "participant": {
+        "name": "John Doe",
+        "registrationNumber": "REG-2024-001234",
+        "scheme": "Junior Web Developer"
+      }
+    },
+    "documents": [
+      {
+        "type": "ktp",
+        "name": "KTP",
+        "status": "verified",
+        "notes": "KTP valid dan sesuai data",
+        "preview": "/documents/ktp-preview.jpg"
+      },
+      {
+        "type": "ijazah",
+        "name": "Ijazah",
+        "status": "pending",
+        "notes": "",
+        "preview": "/documents/ijazah-preview.jpg"
+      },
+      {
+        "type": "pasFoto",
+        "name": "Pas Foto",
+        "status": "verified",
+        "notes": "Foto sesuai spesifikasi",
+        "preview": "/documents/photo-preview.jpg"
+      }
+    ],
+    "form": {
+      "verificationStatus": {
+        "type": "radio",
+        "label": "Status Verifikasi",
+        "options": [
+          { "value": "verified", "label": "Terverifikasi" },
+          { "value": "rejected", "label": "Ditolak" },
+          { "value": "needs_revision", "label": "Perlu Revisi" }
+        ],
+        "required": true
+      },
+      "notes": {
+        "type": "textarea",
+        "label": "Catatan Verifikasi",
+        "placeholder": "Masukkan catatan untuk peserta...",
+        "rows": 4
+      }
+    },
+    "actions": [
+      {
+        "text": "Tolak",
+        "variant": "button.outline.error",
+        "action": "rejectDocuments"
+      },
+      {
+        "text": "Simpan Draft",
+        "variant": "button.outline",
+        "action": "saveDraft"
+      },
+      {
+        "text": "Verifikasi",
+        "variant": "button.primary",
+        "action": "approveVerification"
+      }
+    ]
+  },
+  "responsive": {
+    "mobile": {
+      "filtersAndSearch": {
+        "container": {
+          "padding": "16px"
+        },
+        "searchSection": {
+          "marginBottom": "16px"
+        },
+        "filters": {
+          "gridColumns": "1fr",
+          "gap": "12px"
+        }
+      },
+      "participantsTable": {
+        "tableView": "cards",
+        "cardStructure": {
+          "participantHeader": {
+            "avatar": "small",
+            "name": "large",
+            "registrationNumber": true
+          },
+          "details": {
+            "scheme": true,
+            "status": true,
+            "date": true,
+            "documents": "badges"
+          },
+          "actions": {
+            "layout": "horizontal",
+            "primaryAction": true
+          }
+        }
+      },
+      "bulkActions": {
+        "container": {
+          "flexDirection": "column",
+          "alignItems": "stretch",
+          "gap": "12px"
+        },
+        "actions": {
+          "fullWidth": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "componentName": "Animation and Micro-interaction System",
+  "description": "Comprehensive animation system with micro-interactions for enhanced UX",
+  "animationPrinciples": {
+    "timing": {
+      "instant": "0ms",
+      "fast": "150ms",
+      "normal": "300ms",
+      "slow": "500ms",
+      "extraSlow": "800ms"
+    },
+    "easing": {
+      "linear": "linear",
+      "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+      "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+      "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      "elastic": "cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+    },
+    "respectReducedMotion": true,
+    "performanceOptimized": true
+  },
+  "microInteractions": {
+    "buttonInteractions": {
+      "default": {
+        "idle": {
+          "transform": "scale(1)",
+          "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
+        },
+        "hover": {
+          "transform": "scale(1.05)",
+          "boxShadow": "0 4px 12px rgba(0, 0, 0, 0.15)",
+          "duration": "150ms",
+          "easing": "easeOut"
+        },
+        "press": {
+          "transform": "scale(0.98)",
+          "boxShadow": "0 1px 2px rgba(0, 0, 0, 0.1)",
+          "duration": "100ms",
+          "easing": "easeIn"
+        },
+        "loading": {
+          "opacity": 0.7,
+          "cursor": "not-allowed",
+          "spinner": true
+        },
+        "success": {
+          "backgroundColor": "#4CAF50",
+          "transform": "scale(1.1)",
+          "duration": "300ms",
+          "easing": "bounce"
+        },
+        "error": {
+          "backgroundColor": "#F44336",
+          "shake": true,
+          "duration": "500ms"
+        }
+      },
+      "rippleEffect": {
+        "enabled": true,
+        "color": "rgba(255, 255, 255, 0.3)",
+        "duration": "600ms",
+        "easing": "easeOut"
+      }
+    },
+    "formFieldInteractions": {
+      "focus": {
+        "borderColor": "#0A3D62",
+        "boxShadow": "0 0 0 4px rgba(10, 61, 98, 0.1)",
+        "labelFloat": true,
+        "duration": "200ms",
+        "easing": "easeOut"
+      },
+      "blur": {
+        "borderColor": "#DADCE0",
+        "boxShadow": "none",
+        "duration": "200ms",
+        "easing": "easeIn"
+      },
+      "valid": {
+        "borderColor": "#4CAF50",
+        "successIcon": "checkmark",
+        "animation": "success-bounce"
+      },
+      "invalid": {
+        "borderColor": "#F44336",
+        "errorIcon": "error",
+        "shake": true,
+        "duration": "300ms"
+      },
+      "loading": {
+        "spinner": "border-right",
+        "borderColor": "#0A3D62",
+        "size": "20px"
+      }
+    },
+    "cardInteractions": {
+      "hover": {
+        "transform": "translateY(-4px)",
+        "boxShadow": "0 8px 24px rgba(0, 0, 0, 0.12)",
+        "duration": "300ms",
+        "easing": "easeOut"
+      },
+      "press": {
+        "transform": "translateY(-2px) scale(0.98)",
+        "duration": "100ms",
+        "easing": "easeIn"
+      },
+      "expand": {
+        "height": "auto",
+        "duration": "500ms",
+        "easing": "easeInOut"
+      },
+      "collapse": {
+        "height": "collapsed",
+        "duration": "400ms",
+        "easing": "easeInOut"
+      }
+    },
+    "navigationInteractions": {
+      "menuToggle": {
+        "hamburgerToClose": [
+          { "transform": "rotate(45deg)", "delay": "0ms" },
+          { "transform": "rotate(-45deg)", "delay": "100ms" },
+          { "opacity": "0", "delay": "50ms" },
+          { "opacity": "1", "delay": "150ms" }
+        ],
+        "duration": "300ms",
+        "easing": "easeInOut"
+      },
+      "sidebarSlide": {
+        "open": {
+          "transform": "translateX(0)",
+          "duration": "300ms",
+          "easing": "easeOut"
+        },
+        "close": {
+          "transform": "translateX(-100%)",
+          "duration": "250ms",
+          "easing": "easeIn"
+        }
+      },
+      "tabSwitch": {
+        "indicator": {
+          "transform": "translateX(var(--tab-position))",
+          "duration": "300ms",
+          "easing": "easeOut"
+        },
+        "content": {
+          "opacity": [0, 1],
+          "transform": ["translateY(20px)", "translateY(0)"],
+          "duration": "400ms",
+          "easing": "easeOut"
+        }
+      }
+    },
+    "loadingStates": {
+      "skeletonLoading": {
+        "gradient": "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+        "animation": "shimmer 1.5s infinite",
+        "borderRadius": "4px"
+      },
+      "progressBar": {
+        "indeterminate": {
+          "animation": "progress-indeterminate 2s ease-in-out infinite"
+        },
+        "determinate": {
+          "transition": "width 0.3s ease-out"
+        }
+      },
+      "spinner": {
+        "border": "3px solid #f3f3f3",
+        "borderTop": "3px solid #0A3D62",
+        "borderRadius": "50%",
+        "animation": "spin 1s linear infinite"
+      }
+    },
+    "notificationInteractions": {
+      "slideIn": {
+        "transform": "translateX(100%)",
+        "opacity": 0,
+        "animation": "slide-in-right 0.3s ease-out"
+      },
+      "slideOut": {
+        "transform": "translateX(100%)",
+        "opacity": 0,
+        "animation": "slide-out-right 0.3s ease-in"
+      },
+      "bounce": {
+        "animation": "bounce-in 0.6s ease-out"
+      },
+      "autoHide": {
+        "delay": "5000ms",
+        "fadeOut": "300ms"
+      }
+    },
+    "dropdownInteractions": {
+      "open": {
+        "transform": "scaleY(0) scaleX(0.95)",
+        "opacity": 0,
+        "animation": "dropdown-open 0.2s ease-out forwards"
+      },
+      "close": {
+        "transform": "scaleY(1) scaleX(1)",
+        "opacity": 1,
+        "animation": "dropdown-close 0.15s ease-in forwards"
+      },
+      "itemHover": {
+        "backgroundColor": "#f5f5f5",
+        "transform": "translateX(4px)",
+        "duration": "150ms"
+      }
+    }
+  },
+  "pageTransitions": {
+    "slideInRight": {
+      "from": { "transform": "translateX(100%)", "opacity": 0 },
+      "to": { "transform": "translateX(0)", "opacity": 1 },
+      "duration": "400ms",
+      "easing": "easeOut"
+    },
+    "slideInLeft": {
+      "from": { "transform": "translateX(-100%)", "opacity": 0 },
+      "to": { "transform": "translateX(0)", "opacity": 1 },
+      "duration": "400ms",
+      "easing": "easeOut"
+    },
+    "fadeInUp": {
+      "from": { "transform": "translateY(20px)", "opacity": 0 },
+      "to": { "transform": "translateY(0)", "opacity": 1 },
+      "duration": "500ms",
+      "easing": "easeOut"
+    },
+    "fadeIn": {
+      "from": { "opacity": 0 },
+      "to": { "opacity": 1 },
+      "duration": "300ms",
+      "easing": "easeOut"
+    },
+    "scaleIn": {
+      "from": { "transform": "scale(0.9)", "opacity": 0 },
+      "to": { "transform": "scale(1)", "opacity": 1 },
+      "duration": "300ms",
+      "easing": "bounce"
+    }
+  },
+  "componentAnimations": {
+    "heroSection": {
+      "title": {
+        "animation": "fadeInUp 0.8s ease-out",
+        "delay": "200ms"
+      },
+      "subtitle": {
+        "animation": "fadeInUp 0.8s ease-out",
+        "delay": "400ms"
+      },
+      "ctaButton": {
+        "animation": "fadeInUp 0.8s ease-out",
+        "delay": "600ms"
+      },
+      "illustration": {
+        "animation": "fadeInRight 1s ease-out",
+        "delay": "300ms"
+      },
+      "floatingCards": {
+        "animation": "float 3s ease-in-out infinite",
+        "stagger": "0.5s"
+      }
+    },
+    "progressStepper": {
+      "stepActivation": {
+        "scale": "scale(1.1)",
+        "borderColor": "#0A3D62",
+        "boxShadow": "0 0 0 8px rgba(10, 61, 98, 0.1)",
+        "duration": "300ms",
+        "easing": "bounce"
+      },
+      "connectorProgress": {
+        "backgroundColor": "#4CAF50",
+        "width": "100%",
+        "duration": "500ms",
+        "easing": "easeOut"
+      },
+      "stepCompletion": {
+        "icon": "checkmark",
+        "backgroundColor": "#4CAF50",
+        "animation": "checkmark-draw 0.6s ease-out"
+      }
+    },
+    "dataTable": {
+      "rowHover": {
+        "backgroundColor": "#f8f9fa",
+        "transform": "translateX(2px)",
+        "duration": "200ms"
+      },
+      "rowSelection": {
+        "backgroundColor": "#e3f2fd",
+        "duration": "300ms"
+      },
+      "sortIndicator": {
+        "rotation": "rotate(180deg)",
+        "duration": "200ms"
+      }
+    },
+    "modal": {
+      "backdrop": {
+        "fadeIn": 0.3s,
+        "fadeOut": 0.3s
+      },
+      "modal": {
+        "scaleIn": 0.3s,
+        "scaleOut": 0.3s,
+        "easing": "easeOut"
+      },
+      "content": {
+        "fadeInUp": 0.4s,
+        "delay": "100ms"
+      }
+    },
+    "tooltip": {
+      "appearance": {
+        "transform": "scale(0.8)",
+        "opacity": 0,
+        "animation": "tooltip-appear 0.2s ease-out forwards"
+      },
+      "disappearance": {
+        "transform": "scale(0.8)",
+        "opacity": 0,
+        "animation": "tooltip-disappear 0.15s ease-in forwards"
+      }
+    }
+  },
+  "keyframeAnimations": {
+    "shimmer": {
+      "0%": { "backgroundPosition": "-200% 0" },
+      "100%": { "backgroundPosition": "200% 0" }
+    },
+    "spin": {
+      "0%": { "transform": "rotate(0deg)" },
+      "100%": { "transform": "rotate(360deg)" }
+    },
+    "bounce": {
+      "0%, 20%, 53%, 80%, 100%": {
+        "transform": "translate3d(0, 0, 0)"
+      },
+      "40%, 43%": {
+        "transform": "translate3d(0, -30px, 0)"
+      },
+      "70%": {
+        "transform": "translate3d(0, -15px, 0)"
+      },
+      "90%": {
+        "transform": "translate3d(0, -4px, 0)"
+      }
+    },
+    "float": {
+      "0%, 100%": {
+        "transform": "translateY(0)"
+      },
+      "50%": {
+        "transform": "translateY(-10px)"
+      }
+    },
+    "pulse": {
+      "0%": {
+        "boxShadow": "0 0 0 0 rgba(10, 61, 98, 0.7)"
+      },
+      "70%": {
+        "boxShadow": "0 0 0 10px rgba(10, 61, 98, 0)"
+      },
+      "100%": {
+        "boxShadow": "0 0 0 0 rgba(10, 61, 98, 0)"
+      }
+    },
+    "shake": {
+      "0%, 100%": { "transform": "translateX(0)" },
+      "10%, 30%, 50%, 70%, 90%": { "transform": "translateX(-5px)" },
+      "20%, 40%, 60%, 80%": { "transform": "translateX(5px)" }
+    },
+    "checkmark": {
+      "0%": {
+        "stroke-dashoffset": 100
+      },
+      "100%": {
+        "stroke-dashoffset": 0
+      }
+    }
+  },
+  "performanceConsiderations": {
+    "gpuAcceleration": [
+      "transform",
+      "opacity",
+      "will-change"
+    ],
+    "avoidAnimations": [
+      "width",
+      "height",
+      "left",
+      "top",
+      "margin",
+      "padding"
+    ],
+    "optimizeForMobile": {
+      "reduceComplexity": true,
+      "lowerDuration": true,
+      "simplifyEasing": true
+    },
+    "respectUserPreferences": {
+      "reducedMotion": "remove non-essential animations",
+      "batterySaver": "reduce animation frequency",
+      "lowPerformance": "simplify animations"
+    }
+  },
+  "debuggingTools": {
+    "animationInspector": {
+      "showDuration": true,
+      "showEasing": true,
+      "showDelay": true,
+      "highlightAnimated": true
+    },
+    "performanceMonitor": {
+      "frameRate": true,
+      "renderTime": true,
+      "animationCount": true
+    },
+    "accessibilityChecker": {
+      "reducedMotionRespect": true,
+      "animationEssentiality": true
+    }
+  }
+}

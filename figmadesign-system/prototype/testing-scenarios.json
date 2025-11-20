@@ -1,0 +1,408 @@
+{
+  "componentName": "Prototype Testing Scenarios",
+  "description": "Comprehensive testing scenarios and user journey validation for the LSP-SI prototype",
+  "testingFramework": {
+    "methodology": "User-centered design testing",
+    "testTypes": [
+      "Usability Testing",
+      "A/B Testing",
+      "Accessibility Testing",
+      "Performance Testing",
+      "Cross-device Testing"
+    ],
+    "metrics": [
+      "Task Completion Rate",
+      "Time on Task",
+      "Error Rate",
+      "Satisfaction Score",
+      "System Usability Scale (SUS)"
+    ],
+    "tools": [
+      "Figma Prototype",
+      "UserTesting.com",
+      "Hotjar",
+      "Google Analytics",
+      "Accessibility Checker"
+    ]
+  },
+  "userPersonas": [
+    {
+      "id": "participant-new",
+      "name": "Andi Pratama",
+      "age": 24,
+      "occupation": "Fresh Graduate",
+      "techSavviness": "Medium",
+      "goals": ["Get certification", "Improve job prospects"],
+      "frustrations": ["Unclear process", "Complex forms"],
+      "devices": ["Smartphone", "Laptop"]
+    },
+    {
+      "id": "participant-experienced",
+      "name": "Sarah Wijaya",
+      "age": 32,
+      "occupation": "Senior Developer",
+      "techSavviness": "High",
+      "goals": ["Career advancement", "Skill validation"],
+      "frustrations": ["Slow processes", "Poor mobile experience"],
+      "devices": ["Laptop", "Tablet", "Smartphone"]
+    },
+    {
+      "id": "admin-basic",
+      "name": "Budi Santoso",
+      "age": 45,
+      "occupation": "LSP Admin",
+      "techSavviness": "Medium",
+      "goals": ["Efficient verification", "Clear data presentation"],
+      "frustrations": ["Complex interfaces", "Time-consuming tasks"],
+      "devices": ["Desktop Computer", "Laptop"]
+    },
+    {
+      "id": "admin-senior",
+      "name": "Diana Putri",
+      "age": 38,
+      "occupation": "LSP Manager",
+      "techSavviness": "High",
+      "goals": ["Data insights", "Process optimization"],
+      "frustrations": ["Limited reporting", "Manual processes"],
+      "devices": ["Desktop Computer", "Multiple monitors"]
+    }
+  ],
+  "testScenarios": [
+    {
+      "id": "registration-complete",
+      "name": "Complete Registration Journey",
+      "description": "New user registering for certification from start to finish",
+      "persona": "participant-new",
+      "priority": "Critical",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Navigate to landing page",
+          "expected": "Clear CTA visible and accessible",
+          "measurements": ["Time to find CTA", "Click success rate"]
+        },
+        {
+          "step": 2,
+          "action": "Click 'Daftar Sekarang' button",
+          "expected": "Smooth transition to registration page",
+          "measurements": ["Load time", "Transition success"]
+        },
+        {
+          "step": 3,
+          "action": "Complete Step 1 - Personal Data",
+          "expected": "Form validation works correctly",
+          "measurements": ["Completion time", "Error rate", "Field validation clarity"]
+        },
+        {
+          "step": 4,
+          "action": "Complete Step 2 - Document Upload",
+          "expected": "Drag-and-drop works, file validation clear",
+          "measurements": ["Upload success rate", "File type understanding", "Error recovery"]
+        },
+        {
+          "step": 5,
+          "action": "Complete Step 3 - Review & Confirm",
+          "expected": "Data displayed accurately, confirmation clear",
+          "measurements": ["Data accuracy perception", "Understanding of terms"]
+        },
+        {
+          "step": 6,
+          "action": "Submit registration",
+          "expected": "Success modal appears, next steps clear",
+          "measurements": ["Success message clarity", "Next steps understanding"]
+        }
+      ],
+      "successCriteria": [
+        "Completion rate > 85%",
+        "Average time < 10 minutes",
+        "Error rate < 15%",
+        "Satisfaction score > 4.0/5"
+      ],
+      "criticalPaths": [
+        "Landing page CTA → Registration form",
+        "Form validation → Next step",
+        "Document upload → Success",
+        "Submit → Confirmation"
+      ]
+    },
+    {
+      "id": "document-verification",
+      "name": "Admin Document Verification Workflow",
+      "description": "Admin verifying participant documents efficiently",
+      "persona": "admin-basic",
+      "priority": "Critical",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Access admin dashboard",
+          "expected": "Dashboard loads quickly, key metrics visible",
+          "measurements": ["Load time", "Information findability"]
+        },
+        {
+          "step": 2,
+          "action": "Navigate to participants table",
+          "expected": "Table displays clearly, filters accessible",
+          "measurements": ["Navigation success", "Filter usage"]
+        },
+        {
+          "step": 3,
+          "action": "Identify pending verification",
+          "expected": "Pending status clearly visible",
+          "measurements": ["Status identification time", "Visual clarity"]
+        },
+        {
+          "step": 4,
+          "action": "Open verification modal",
+          "expected": "Modal opens smoothly, documents visible",
+          "measurements": ["Modal load time", "Document preview clarity"]
+        },
+        {
+          "step": 5,
+          "action": "Review and approve/reject documents",
+          "expected": "Interface responsive, actions clear",
+          "measurements": ["Decision time", "Action accuracy"]
+        },
+        {
+          "step": 6,
+          "action": "Update participant status",
+          "expected": "Status updates in real-time",
+          "measurements": ["Update confirmation", "System responsiveness"]
+        }
+      ],
+      "successCriteria": [
+        "Verification time < 3 minutes per participant",
+        "Error rate < 5%",
+        "Admin satisfaction > 4.2/5",
+        "Bulk operations usage > 40%"
+      ]
+    },
+    {
+      "id": "scheduling-workflow",
+      "name": "Assessment Scheduling Process",
+      "description": "Admin creating and managing assessment schedules",
+      "persona": "admin-senior",
+      "priority": "High",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Access scheduling interface",
+          "expected": "Calendar view loads, controls accessible",
+          "measurements": ["Calendar load time", "Control accessibility"]
+        },
+        {
+          "step": 2,
+          "action": "Select date for new assessment",
+          "expected": "Date selection responsive, visual feedback",
+          "measurements": ["Selection accuracy", "Visual feedback clarity"]
+        },
+        {
+          "step": 3,
+          "action": "Fill schedule details",
+          "expected": "Form fields clear, validation helpful",
+          "measurements": ["Form completion time", "Validation helpfulness"]
+        },
+        {
+          "step": 4,
+          "action": "Assign assessors",
+          "expected": "Assessor availability visible, conflicts detected",
+          "measurements": ["Assignment accuracy", "Conflict detection success"]
+        },
+        {
+          "step": 5,
+          "action": "Confirm schedule",
+          "expected": "Summary accurate, confirmation clear",
+          "measurements": ["Summary accuracy", "Confirmation understanding"]
+        }
+      ],
+      "successCriteria": [
+        "Schedule creation time < 5 minutes",
+        "Conflict detection rate > 95%",
+        "Assessor assignment accuracy > 98%"
+      ]
+    },
+    {
+      "id": "mobile-experience",
+      "name": "Mobile Responsiveness Testing",
+      "description": "Testing complete workflow on mobile devices",
+      "persona": "participant-experienced",
+      "priority": "High",
+      "devices": ["Smartphone", "Tablet"],
+      "steps": [
+        {
+          "step": 1,
+          "action": "Access site on mobile",
+          "expected": "Site loads properly, navigation usable",
+          "measurements": ["Mobile load time", "Navigation ease"]
+        },
+        {
+          "step": 2,
+          "action": "Complete mobile registration",
+          "expected": "Forms mobile-optimized, typing comfortable",
+          "measurements": ["Form completion time", "Input comfort"]
+        },
+        {
+          "step": 3,
+          "action": "Upload documents on mobile",
+          "expected": "Camera integration works, uploads successful",
+          "measurements": ["Camera usage success", "Upload success rate"]
+        },
+        {
+          "step": 4,
+          "action": "Check dashboard on mobile",
+          "expected": "Information accessible, actions doable",
+          "measurements": ["Dashboard usability", "Action completion"]
+        }
+      ],
+      "successCriteria": [
+        "Mobile task completion > 80%",
+        "Touch target accuracy > 95%",
+        "Mobile satisfaction > 4.0/5"
+      ]
+    },
+    {
+      "id": "accessibility-testing",
+      "name": "Accessibility Compliance Testing",
+      "description": "Ensuring WCAG 2.1 AA compliance",
+      "priority": "Critical",
+      "tools": ["Screen reader", "Keyboard only", "Color blind simulator"],
+      "steps": [
+        {
+          "step": 1,
+          "action": "Navigate with keyboard only",
+          "expected": "All elements accessible via tab",
+          "measurements": ["Keyboard navigation success", "Focus visibility"]
+        },
+        {
+          "step": 2,
+          "action": "Use screen reader",
+          "expected": "Content read logically, labels descriptive",
+          "measurements": ["Screen reader compatibility", "Label accuracy"]
+        },
+        {
+          "step": 3,
+          "action": "Test color contrast",
+          "expected": "All text meets 4.5:1 contrast ratio",
+          "measurements": ["Contrast ratio compliance", "Color independence"]
+        },
+        {
+          "step": 4,
+          "action": "Test with reduced motion",
+          "expected": "Essential functions work without animation",
+          "measurements": ["Reduced motion respect", "Function preservation"]
+        }
+      ],
+      "successCriteria": [
+        "WCAG 2.1 AA compliance > 95%",
+        "Keyboard accessibility 100%",
+        "Screen reader compatibility > 90%"
+      ]
+    }
+  ],
+  "testProtocols": {
+    "preTest": {
+      "participantBriefing": "5 minutes",
+      "consentForm": true,
+      "demographicSurvey": true,
+      "baselineKnowledge": false
+    },
+    "duringTest": {
+      "thinkAloud": true,
+      "screenRecording": true,
+      "audioRecording": true,
+      "observerNotes": true,
+      "interruptionGuidelines": "Only for critical issues"
+    },
+    "postTest": {
+      "satisfactionSurvey": true,
+      "SUS questionnaire": true,
+      "retrospectiveInterview": 10,
+      "compensation": "If applicable"
+    }
+  },
+  "dataCollection": {
+    "quantitative": [
+      "Task completion rate",
+      "Time on task",
+      "Error count and type",
+      "Click heatmap data",
+      "Scroll depth",
+      "Page load times"
+    ],
+    "qualitative": [
+      "User quotes",
+      "Observation notes",
+      "Satisfaction comments",
+      "Suggestion for improvement",
+      "Emotional reactions"
+    ],
+    "technical": [
+      "Browser/device information",
+      "Network speed",
+      "Screen resolution",
+      "JavaScript errors",
+      "Console logs"
+    ]
+  },
+  "successMetrics": {
+    "overall": {
+      "taskCompletion": "> 85%",
+      "satisfaction": "> 4.0/5.0",
+      "errorRate": "< 15%",
+      "learnability": "> 80%"
+    },
+    "efficiency": {
+      "registrationTime": "< 10 minutes",
+      "verificationTime": "< 3 minutes",
+      "scheduleCreation": "< 5 minutes"
+    },
+    "accessibility": {
+      "wcagCompliance": "> 95%",
+      "keyboardNavigation": "100%",
+      "screenReaderSupport": "> 90%"
+    }
+  },
+  "iterationPlan": {
+    "round1": {
+      "focus": "Critical paths and major usability issues",
+      "participants": 5-7,
+      "changes": "Quick fixes, major flow improvements"
+    },
+    "round2": {
+      "focus": "Refined interactions and edge cases",
+      "participants": 7-10,
+      "changes": "Interaction refinements, content improvements"
+    },
+    "round3": {
+      "focus": "Validation and accessibility",
+      "participants": 10-15,
+      "changes": "Final polish, accessibility improvements"
+    }
+  },
+  "testEnvironment": {
+    "devices": [
+      "Desktop (1440x900)",
+      "Laptop (1366x768)",
+      "Tablet (768x1024)",
+      "Smartphone (375x667)"
+    ],
+    "browsers": [
+      "Chrome (latest)",
+      "Firefox (latest)",
+      "Safari (latest)",
+      "Edge (latest)"
+    ],
+    "networkConditions": [
+      "4G/WiFi",
+      "3G",
+      "Slow 3G (for performance testing)"
+    ]
+  },
+  "reporting": {
+    "executiveSummary": true,
+      "detailedFindings": true,
+      "recommendations": true,
+      "actionableInsights": true,
+      "priorityMatrix": true,
+      "successMetricsComparison": true
+  }
+}

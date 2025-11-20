@@ -1,0 +1,659 @@
+{
+  "componentName": "Assessor Management",
+  "description": "CRUD interface for managing assessor data and assignments",
+  "layout": {
+    "container": {
+      "maxWidth": "1400px",
+      "margin": "0px auto",
+      "padding": "32px"
+    }
+  },
+  "header": {
+    "titleSection": {
+      "title": {
+        "text": "Data Asesor",
+        "fontFamily": "Poppins",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "marginBottom": "8px"
+      },
+      "subtitle": {
+        "text": "Kelola data asesor dan alokasi penugasan",
+        "fontFamily": "Roboto",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "actionsSection": {
+      "buttons": [
+        {
+          "text": "Import Data",
+          "variant": "button.outline",
+          "icon": "upload_file",
+          "action": "importAssessors"
+        },
+        {
+          "text": "Export Data",
+          "variant": "button.outline",
+          "icon": "download",
+          "action": "exportAssessors"
+        },
+        {
+          "text": "Tambah Asesor",
+          "variant": "button.primary",
+          "icon": "add",
+          "action": "addAssessor"
+        }
+      ]
+    }
+  },
+  "statsOverview": {
+    "container": {
+      "display": "grid",
+      "gridTemplateColumns": "repeat(auto-fit, minmax(250px, 1fr))",
+      "gap": "24px",
+      "marginBottom": "32px"
+    },
+    "cards": [
+      {
+        "title": "Total Asesor",
+        "value": "24",
+        "change": "+3 bulan ini",
+        "changeType": "positive",
+        "icon": "person_search",
+        "color": "#4285F4"
+      },
+      {
+        "title": "Asesor Aktif",
+        "value": "18",
+        "change": "75%",
+        "changeType": "neutral",
+        "icon": "verified_user",
+        "color": "#34A853"
+      },
+      {
+        "title": "Asesor Tersedia",
+        "value": "8",
+        "change": "Hari ini",
+        "changeType": "neutral",
+        "icon": "event_available",
+        "color": "#FBBC04"
+      },
+      {
+        "title": "Penugasan Bulan Ini",
+        "value": "45",
+        "change": "+12 dari bulan lalu",
+        "changeType": "positive",
+        "icon": "assignment",
+        "color": "#EA4335"
+      }
+    ]
+  },
+  "filtersAndSearch": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "padding": "24px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "marginBottom": "24px"
+    },
+    "searchSection": {
+      "searchBar": {
+        "width": "100%",
+        "maxWidth": "400px",
+        "placeholder": "Cari berdasarkan nama, email, atau nomor sertifikat...",
+        "icon": "search"
+      }
+    },
+    "filtersSection": {
+      "filters": [
+        {
+          "name": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Semua Status" },
+            { "value": "active", "label": "Aktif" },
+            { "value": "inactive", "label": "Tidak Aktif" },
+            { "value": "pending", "label": "Menunggu Verifikasi" },
+            { "value": "suspended", "label": "Diskors" }
+          ]
+        },
+        {
+          "name": "expertise",
+          "label": "Bidang Keahlian",
+          "type": "multi-select",
+          "options": [
+            { "value": "web", "label": "Web Development" },
+            { "value": "mobile", "label": "Mobile Development" },
+            { "value": "backend", "label": "Backend Development" },
+            { "value": "uiux", "label": "UI/UX Design" },
+            { "value": "devops", "label": "DevOps" }
+          ]
+        },
+        {
+          "name": "availability",
+          "label": "Ketersediaan",
+          "type": "checkbox-group",
+          "options": [
+            { "value": "available", "label": "Tersedia" },
+            { "value": "busy", "label": "Sibuk" },
+            { "value": "on_leave", "label": "Cuti" }
+          ]
+        }
+      ]
+    }
+  },
+  "assessorsTable": {
+    "container": {
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": "12px",
+      "boxShadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+      "overflow": "hidden"
+    },
+    "tableHeader": {
+      "title": {
+        "text": "Daftar Asesor",
+        "fontFamily": "Poppins",
+        "fontSize": "20px",
+        "fontWeight": "600",
+        "color": "#1A1A1A",
+        "margin": "0px 0px 16px 0px"
+      },
+      "count": {
+        "text": "Menampilkan 1-10 dari 24 asesor",
+        "fontFamily": "Roboto",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "color": "#5F6368"
+      }
+    },
+    "table": {
+      "headers": [
+        {
+          "key": "checkbox",
+          "label": "",
+          "sortable": false,
+          "width": "5%"
+        },
+        {
+          "key": "assessor",
+          "label": "Data Asesor",
+          "sortable": true,
+          "width": "25%"
+        },
+        {
+          "key": "contact",
+          "label": "Kontak",
+          "sortable": true,
+          "width": "20%"
+        },
+        {
+          "key": "expertise",
+          "label": "Keahlian",
+          "sortable": false,
+          "width": "20%"
+        },
+        {
+          "key": "assignments",
+          "label": "Penugasan",
+          "sortable": true,
+          "width": "10%"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "sortable": true,
+          "width": "10%"
+        },
+        {
+          "key": "actions",
+          "label": "Aksi",
+          "sortable": false,
+          "width": "10%"
+        }
+      ],
+      "rows": [
+        {
+          "id": "1",
+          "checkbox": { "checked": false },
+          "assessor": {
+            "avatar": "/avatars/assessor1.jpg",
+            "name": "Budi Santoso, S.Kom",
+            "certificateNumber": "ASE-001/2024",
+            "joinDate": "15 Jan 2023"
+          },
+          "contact": {
+            "email": "budi.santoso@lsp-si.com",
+            "phone": "+62 812-3456-7890",
+            "address": "Jakarta Selatan"
+          },
+          "expertise": {
+            "primary": "Web Development",
+            "secondary": ["Frontend", "React", "Vue.js"]
+          },
+          "assignments": {
+            "total": "12",
+            "thisMonth": "3",
+            "upcoming": "2"
+          },
+          "status": {
+            "value": "active",
+            "label": "Aktif",
+            "color": "#4CAF50",
+            "availability": "Tersedia"
+          },
+          "actions": [
+            { "type": "view", "icon": "visibility", "label": "Lihat" },
+            { "type": "edit", "icon": "edit", "label": "Edit" },
+            { "type": "schedule", "icon": "calendar_today", "label": "Jadwalkan" },
+            { "type": "more", "icon": "more_vert", "label": "Lainnya" }
+          ]
+        },
+        {
+          "id": "2",
+          "checkbox": { "checked": false },
+          "assessor": {
+            "avatar": "/avatars/assessor2.jpg",
+            "name": "Ahmad Wijaya, M.Kom",
+            "certificateNumber": "ASE-002/2024",
+            "joinDate": "20 Mar 2023"
+          },
+          "contact": {
+            "email": "ahmad.wijaya@lsp-si.com",
+            "phone": "+62 813-9876-5432",
+            "address": "Jakarta Pusat"
+          },
+          "expertise": {
+            "primary": "Mobile Development",
+            "secondary": ["Android", "iOS", "React Native"]
+          },
+          "assignments": {
+            "total": "8",
+            "thisMonth": "2",
+            "upcoming": "1"
+          },
+          "status": {
+            "value": "active",
+            "label": "Aktif",
+            "color": "#4CAF50",
+            "availability": "Sibuk"
+          },
+          "actions": [
+            { "type": "view", "icon": "visibility", "label": "Lihat" },
+            { "type": "edit", "icon": "edit", "label": "Edit" },
+            { "type": "schedule", "icon": "calendar_today", "label": "Jadwalkan" },
+            { "type": "more", "icon": "more_vert", "label": "Lainnya" }
+          ]
+        }
+      ]
+    }
+  },
+  "assessorForm": {
+    "componentName": "Assessor Form Modal",
+    "container": {
+      "maxWidth": "800px",
+      "maxHeight": "90vh",
+      "overflow": "auto"
+    },
+    "mode": "create", // or "edit"
+    "header": {
+      "title": "Tambah Asesor Baru",
+      "subtitle": "Lengkapi data asesor yang akan ditambahkan"
+    },
+    "form": {
+      "sections": [
+        {
+          "title": "Data Pribadi",
+          "fields": [
+            {
+              "name": "fullName",
+              "label": "Nama Lengkap",
+              "type": "text",
+              "placeholder": "Masukkan nama lengkap",
+              "required": true,
+              "validation": "min:3|max:100"
+            },
+            {
+              "name": "certificateNumber",
+              "label": "Nomor Sertifikat Asesor",
+              "type": "text",
+              "placeholder": "Contoh: ASE-001/2024",
+              "required": true,
+              "validation": "unique"
+            },
+            {
+              "name": "nik",
+              "label": "NIK",
+              "type": "text",
+              "placeholder": "16 digit NIK",
+              "required": true,
+              "validation": "min:16|max:16|numeric"
+            },
+            {
+              "name": "birthPlace",
+              "label": "Tempat Lahir",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "birthDate",
+              "label": "Tanggal Lahir",
+              "type": "date",
+              "required": true,
+              "validation": "age:25"
+            },
+            {
+              "name": "gender",
+              "label": "Jenis Kelamin",
+              "type": "radio",
+              "options": [
+                { "value": "L", "label": "Laki-laki" },
+                { "value": "P", "label": "Perempuan" }
+              ],
+              "required": true
+            },
+            {
+              "name": "address",
+              "label": "Alamat Lengkap",
+              "type": "textarea",
+              "required": true,
+              "rows": 3
+            }
+          ]
+        },
+        {
+          "title": "Kontak",
+          "fields": [
+            {
+              "name": "email",
+              "label": "Email",
+              "type": "email",
+              "placeholder": "email@example.com",
+              "required": true,
+              "validation": "email|unique"
+            },
+            {
+              "name": "phone",
+              "label": "Nomor Telepon",
+              "type": "tel",
+              "placeholder": "+62 8xx-xxxx-xxxx",
+              "required": true,
+              "validation": "phone|unique"
+            },
+            {
+              "name": "emergencyContact",
+              "label": "Kontak Darurat",
+              "type": "text",
+              "placeholder": "Nama dan nomor telepon"
+            }
+          ]
+        },
+        {
+          "title": "Keahlian",
+          "fields": [
+            {
+              "name": "primaryExpertise",
+              "label": "Bidang Keahlian Utama",
+              "type": "select",
+              "required": true,
+              "options": [
+                { "value": "web", "label": "Web Development" },
+                { "value": "mobile", "label": "Mobile Development" },
+                { "value": "backend", "label": "Backend Development" },
+                { "value": "uiux", "label": "UI/UX Design" },
+                { "value": "devops", "label": "DevOps" }
+              ]
+            },
+            {
+              "name": "secondaryExpertise",
+              "label": "Keahlian Pendukung",
+              "type": "multi-select",
+              "options": [
+                { "value": "html", "label": "HTML/CSS" },
+                { "value": "javascript", "label": "JavaScript" },
+                { "value": "react", "label": "React" },
+                { "value": "vue", "label": "Vue.js" },
+                { "value": "angular", "label": "Angular" },
+                { "value": "nodejs", "label": "Node.js" },
+                { "value": "python", "label": "Python" },
+                { "value": "java", "label": "Java" },
+                { "value": "android", "label": "Android" },
+                { "value": "ios", "label": "iOS" }
+              ]
+            },
+            {
+              "name": "experience",
+              "label": "Pengalaman (Tahun)",
+              "type": "number",
+              "min": 0,
+              "max": 50,
+              "required": true
+            },
+            {
+              "name": "certifications",
+              "label": "Sertifikat Tambahan",
+              "type": "dynamic-fields",
+              "addField": "Tambah Sertifikat",
+              "fieldTemplate": {
+                "name": "string",
+                "issuer": "string",
+                "date": "date",
+                "certificate": "file"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Dokumen",
+          "fields": [
+            {
+              "name": "photo",
+              "label": "Foto Asesor",
+              "type": "file",
+              "accept": ".jpg,.jpeg,.png",
+              "required": true,
+              "preview": true,
+              "description": "Format: JPG/PNG, ukuran passport"
+            },
+            {
+              "name": "cv",
+              "label": "Curriculum Vitae",
+              "type": "file",
+              "accept": ".pdf",
+              "required": true,
+              "description": "Format: PDF, maks 5MB"
+            },
+            {
+              "name": "assessorCertificate",
+              "label": "Sertifikat Asesor BNSP",
+              "type": "file",
+              "accept": ".pdf",
+              "required": true,
+              "description": "Format: PDF, maks 5MB"
+            },
+            {
+              "name": "portfolio",
+              "label": "Portfolio/Portofolio",
+              "type": "file",
+              "accept": ".pdf,.zip",
+              "required": false,
+              "description": "Format: PDF/ZIP, maks 10MB"
+            }
+          ]
+        },
+        {
+          "title": "Pengaturan Akun",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Status Akun",
+              "type": "radio",
+              "options": [
+                { "value": "active", "label": "Aktif" },
+                { "value": "inactive", "label": "Tidak Aktif" }
+              ],
+              "required": true,
+              "default": "active"
+            },
+            {
+              "name": "availability",
+              "label": "Ketersediaan",
+              "type": "radio",
+              "options": [
+                { "value": "available", "label": "Tersedia" },
+                { "value": "busy", "label": "Sibuk" },
+                { "value": "on_leave", "label": "Cuti" }
+              ],
+              "required": true,
+              "default": "available"
+            },
+            {
+              "name": "generateAccount",
+              "label": "Buat Akun Login",
+              "type": "checkbox",
+              "description": "Secara otomatis membuat akun login untuk asesor",
+              "default": true
+            }
+          ]
+        }
+      ]
+    },
+    "actions": [
+      {
+        "text": "Batal",
+        "variant": "button.outline",
+        "action": "cancel"
+      },
+      {
+        "text": "Simpan Draft",
+        "variant": "button.outline",
+        "action": "saveDraft"
+      },
+      {
+        "text": "Tambah Asesor",
+        "variant": "button.primary",
+        "action": "createAssessor"
+      }
+    ]
+  },
+  "assessorProfile": {
+    "componentName": "Assessor Profile View",
+    "container": {
+      "maxWidth": "1000px"
+    },
+    "header": {
+      "avatar": {
+        "width": "120px",
+        "height": "120px",
+        "borderRadius": "50%",
+        "borderWidth": "4px",
+        "borderColor": "#0A3D62"
+      },
+      "basicInfo": {
+        "name": "Budi Santoso, S.Kom",
+        "certificateNumber": "ASE-001/2024",
+        "status": "Active",
+        "joinDate": "15 Januari 2023"
+      }
+    },
+    "tabs": [
+      {
+        "id": "overview",
+        "label": "Ringkasan",
+        "content": "overviewTab"
+      },
+      {
+        "id": "assignments",
+        "label": "Penugasan",
+        "content": "assignmentsTab"
+      },
+      {
+        "id": "schedule",
+        "label": "Jadwal",
+        "content": "scheduleTab"
+      },
+      {
+        "id": "performance",
+        "label": "Performa",
+        "content": "performanceTab"
+      },
+      {
+        "id": "documents",
+        "label": "Dokumen",
+        "content": "documentsTab"
+      }
+    ]
+  },
+  "assignmentCalendar": {
+    "componentName": "Assessor Assignment Calendar",
+    "features": [
+      "Monthly view with color-coded assignments",
+      "Conflict detection for overlapping schedules",
+      "Quick assignment creation",
+      "Availability status indicators",
+      "Assignment details on hover/click"
+    ]
+  },
+  "bulkActions": {
+    "actions": [
+      {
+        "text": "Aktifkan",
+        "variant": "button.outline.success",
+        "icon": "check_circle",
+        "action": "bulkActivate"
+      },
+      {
+        "text": "Nonaktifkan",
+        "variant": "button.outline.warning",
+        "icon": "block",
+        "action": "bulkDeactivate"
+      },
+      {
+        "text": "Hapus",
+        "variant": "button.outline.error",
+        "icon": "delete",
+        "action": "bulkDelete"
+      },
+      {
+        "text": "Export",
+        "variant": "button.outline",
+        "icon": "download",
+        "action": "bulkExport"
+      }
+    ]
+  },
+  "responsive": {
+    "mobile": {
+      "statsOverview": {
+        "gridTemplateColumns": "repeat(2, 1fr)"
+      },
+      "assessorsTable": {
+        "tableView": "cards",
+        "cardStructure": {
+          "header": {
+            "avatar": "medium",
+            "name": true,
+            "status": true,
+            "availability": true
+          },
+          "details": {
+            "expertise": true,
+            "contact": true,
+            "assignments": true
+          }
+        }
+      },
+      "assessorForm": {
+        "formSections": {
+          "singleColumn": true
+        },
+        "container": {
+          "padding": "16px"
+        }
+      }
+    }
+  }
+}
